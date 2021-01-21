@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>张占阳的博客</title>
+  
+  
+  <link href="http://zzy521.com/atom.xml" rel="self"/>
+  
+  <link href="http://zzy521.com/"/>
+  <updated>2021-01-21T08:48:36.435Z</updated>
+  <id>http://zzy521.com/</id>
+  
+  <author>
+    <name>张占阳</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>EOS中Restful服务的开发与调用</title>
+    <link href="http://zzy521.com/posts/5a3d390e.html"/>
+    <id>http://zzy521.com/posts/5a3d390e.html</id>
+    <published>2021-01-20T09:21:05.000Z</published>
+    <updated>2021-01-21T08:48:36.435Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="开发Restful服务"><a href="#开发Restful服务" class="headerlink" title="开发Restful服务"></a>开发Restful服务</h2><h3 id="创建服务实现类"><a href="#创建服务实现类" class="headerlink" title="创建服务实现类"></a>创建服务实现类</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;开发Restful服务&quot;&gt;&lt;a href=&quot;#开发Restful服务&quot; class=&quot;headerlink&quot; title=&quot;开发Restful服务&quot;&gt;&lt;/a&gt;开发Restful服务&lt;/h2&gt;&lt;h3 id=&quot;创建服务实现类&quot;&gt;&lt;a href=&quot;#创建服务实现类&quot; c</summary>
+      
+    
+    
+    
+    <category term="文章分类" scheme="http://zzy521.com/categories/%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB/"/>
+    
+    
+    <category term="文章标签" scheme="http://zzy521.com/tags/%E6%96%87%E7%AB%A0%E6%A0%87%E7%AD%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown生成带侧边目录的HTML</title>
+    <link href="http://zzy521.com/posts/7067bb35.html"/>
+    <id>http://zzy521.com/posts/7067bb35.html</id>
+    <published>2021-01-03T02:24:25.000Z</published>
+    <updated>2021-01-03T02:25:44.315Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>在使用Markdown文件生成说明文档的时候一般需要家侧边目录，但是Markdown本身的目录只能在上方显示，这里我选择使用一个插件来生成侧边目录。</strong></p><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>使用了node.js，没有安装的话自己安装，安装插件下载过慢的话换淘宝源或者清华源</p><p>点击<code>win</code>+<code>r</code>，输入cmd点击回车打开。</p><img src="../img/QQ截图20210103095659.png" alt="QQ截图20210103095659" style="zoom:67%;" /><p>输入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g i5ting_toc</span><br></pre></td></tr></table></figure><img src="../img/QQ截图20210103095946.png" alt="QQ截图20210103095946" style="zoom:67%;" /><p>出现添加包成功代表安装成功</p><h2 id="生成文件"><a href="#生成文件" class="headerlink" title="生成文件"></a>生成文件</h2><p>打开需要生成的md文件所在目录</p><p><img src="../img/QQ%E6%88%AA%E5%9B%BE20210103100441.png" alt="QQ截图20210103100441"></p><p>在地址栏输入cmd点击回车。（这样操作省去了使用cd将目录移动到文件所在的文件夹的步骤）<img src="../img/QQ截图20210103100529.png" alt="QQ截图20210103100529" style="zoom:67%;" /></p><p>输入</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">i5ting_toc -f Tomcat的目录结构.md -o</span><br></pre></td></tr></table></figure><p><code>Tomcat的目录结构.md</code>是我的文件名，需要根据自己的文件名去修改。<img src="../img/QQ截图20210103101000.png" alt="QQ截图20210103101000" style="zoom:67%;" /></p><p>下面输出的三行分别为文件所在文件夹、目标文件和生成的文件。</p><p>推荐将Markdown中使用的图片都放在一个单独的文件夹，并将文件夹和Markdown放在一个文件夹中，将图片路径设置为相对路径，这样如果生成的HTML文件图片不显示只要将图片文件夹复制一份放到preview文件夹中就正常显示了。</p><img src="../img/QQ截图20210103101650.png" alt="QQ截图20210103101650" style="zoom:67%;" /><p><strong>可以看到生成的文件已经加了锚点，支持打开相应的链接直接跳转到相应的位置。</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;strong&gt;在使用Markdown文件生成说明文档的时候一般需要家侧边目录，但是Markdown本身的目录只能在上方显示，这里我选择使用一个插件来生成侧边目录。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;安装插件&quot;&gt;&lt;a href=&quot;#安装插件&quot; class=&quot;head</summary>
+      
+    
+    
+    
+    <category term="开发工具" scheme="http://zzy521.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="markdown" scheme="http://zzy521.com/tags/markdown/"/>
+    
+    <category term="项目说明" scheme="http://zzy521.com/tags/%E9%A1%B9%E7%9B%AE%E8%AF%B4%E6%98%8E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Tomcat服务器介绍</title>
+    <link href="http://zzy521.com/posts/c86b9588.html"/>
+    <id>http://zzy521.com/posts/c86b9588.html</id>
+    <published>2021-01-02T09:01:32.000Z</published>
+    <updated>2021-01-02T09:10:00.694Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Tomcat的目录结构"><a href="#Tomcat的目录结构" class="headerlink" title="Tomcat的目录结构"></a>Tomcat的目录结构</h2><p>解压下载好的tomcat可以看到如下文件结构：</p><p><code>bin</code>：存放启动和关闭tomcat的命令的路径。</p><p><code>conf</code>：存放tomcat的配置，所有的tomcat的配置都在该路径下设置。</p><p><code>lib</code>：存放Tomcat服务器的核心类库（JAR文件），如果需要扩展tomcat的功能，也可将第三方类库复制到该路径下。</p><p><code>logs</code>：这是一个空路径，用来保存Tomcat每次运行后产生的日志。</p><p><code>temp</code>：保存Web应用运行过程中生成的临时文件。</p><p><code>webapps</code>：该路径用于自动部署Web应用，将Web应用复制到该路径下，Tomcat启动时会自动将该应用部署到容器中。</p><p><code>work</code>：保存在Web应用在运行过程中编译生成的.class文件。该文件夹可以删除，但每次启动Tomcat时系统都会再次建立该路径。</p><p><code>LICENSE</code>等相关文档</p><p><strong>运行Tomcat只需要系统有一个JAVA_HOME环境变量。不管是Windows还是linux，只要有这个环境变量并且指向JDK的安装路径即可。</strong></p><h2 id="启动Tomcat"><a href="#启动Tomcat" class="headerlink" title="启动Tomcat"></a>启动Tomcat</h2><p>对于Windows平台，只要双击Tomcat安装路径下bin目录中的startup.bat文件即可。</p><p>启动Tomcat后，打开浏览器并在地址栏输入<a href="http://localhost:8080/%EF%BC%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E5%87%BA%E7%8E%B0%E6%AD%A4%E7%95%8C%E9%9D%A2%E5%8D%B3%E8%A1%A8%E7%A4%BA%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F%E3%80%82">http://localhost:8080/，浏览器出现此界面即表示安装成功。</a></p><img src="../img/QQ截图20210102160835.png" alt="QQ截图20210102160835" style="zoom: 67%;" /><h2 id="配置Tomcat的端口"><a href="#配置Tomcat的端口" class="headerlink" title="配置Tomcat的端口"></a>配置Tomcat的端口</h2><p>Tomcat的默认端口是8080，可以通过修改Tomcat的配置文件来改变服务端口，甚至可以让Tomcat同时在多个端口提供服务。</p><p>Tomcat的配置文件在<code>conf</code>目录下，控制端口的配置文件为<code>conf</code>下的<code>server.xml</code>文件。切记修改时只能用记事本或者vi等无格式的编辑器，不可以使用写字板。</p><p>在<code>service.xml</code>的70行左右的位置，可以看到以下代码</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">&quot;8080&quot;</span> <span class="attr">protocol</span>=<span class="string">&quot;HTTP/1.1&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">connectionTimeout</span>=<span class="string">&quot;20000&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">redirectPort</span>=<span class="string">&quot;8443&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure><p>其中<code>port=&quot;8080&quot;</code>就是Tomcat提供服务的端口，将Tomcat修改为任意的端口，为避免与公用端口产生冲突，端口号最好大于1024。在这里我修改为8090.</p><p>修改完之后重启Tomcat，在浏览器地址栏输入<a href="http://localhost:8090/,%E5%8D%B3%E5%8F%AF%E5%86%8D%E6%AC%A1%E7%9C%8B%E5%88%B0Tomcat%E7%9A%84%E7%95%8C%E9%9D%A2%E3%80%82">http://localhost:8090/,即可再次看到Tomcat的界面。</a></p><h2 id="Tomcat的控制台"><a href="#Tomcat的控制台" class="headerlink" title="Tomcat的控制台"></a>Tomcat的控制台</h2><p>在上图右上角有三个控制台：一个是Server Status控制台，一个是Manager APP控制台，一个是Host Mnager控制台。</p><p>Status用来监控服务器的状态，Manager控制台用来部署和监控Web应用，通常只需使用Manager控制台。</p><p>控制台的用户名和密码是通过Tomcat的JAAS（JAAS的全称是Java Authentication Authorization Service（Java验证和授权API），它用来控制对Java web应用的授权访问）控制的。初始是没有用户的，所以无论输入什么都无法登陆。</p><p>webapps路径是Web应用的存放路径，而Manager控制台对应的也是一个Web应用，所以它的配置文件是webapps/manager/WEB-INF路径下的web.xml文件。</p><p>用户的配置也在其中，但是Tomcat采用文件安全域，<strong>添加控制台用户只需要修改conf路径下的tomcat-users.xml文件即可。</strong></p><p>打开该文件在</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tomcat-users</span>&gt;</span></span><br></pre></td></tr></table></figure><p>下方添加下列内容</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">role</span> <span class="attr">rolename</span>=<span class="string">&quot;manager-gui&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">user</span> <span class="attr">username</span>=<span class="string">&quot;manager&quot;</span> <span class="attr">password</span>=<span class="string">&quot;manager&quot;</span> <span class="attr">roles</span>=<span class="string">&quot;manager-gui&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure><p>此处登录用户名和密码我都是用的manager，可以根据需要自行修改。</p><p>修改过后重启Tomcat点击控制台登录即可。</p><p>显示下图即表示登陆成功</p><img src="../img/QQ截图20210102165446.png" alt="QQ截图20210102165446" style="zoom:67%;" /><hr><p><strong>Tomcat服务器状态</strong></p><p><img src="../img/QQ%E6%88%AA%E5%9B%BE20210102165559.png" alt="QQ截图20210102165559"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Tomcat的目录结构&quot;&gt;&lt;a href=&quot;#Tomcat的目录结构&quot; class=&quot;headerlink&quot; title=&quot;Tomcat的目录结构&quot;&gt;&lt;/a&gt;Tomcat的目录结构&lt;/h2&gt;&lt;p&gt;解压下载好的tomcat可以看到如下文件结构：&lt;/p&gt;
+&lt;p&gt;&lt;co</summary>
+      
+    
+    
+    
+    <category term="服务器" scheme="http://zzy521.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+    <category term="Tomcat" scheme="http://zzy521.com/tags/Tomcat/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux查看应用的端口号和进程号PID</title>
+    <link href="http://zzy521.com/posts/73a46000.html"/>
+    <id>http://zzy521.com/posts/73a46000.html</id>
+    <published>2020-12-22T09:57:25.000Z</published>
+    <updated>2020-12-23T01:25:15.839Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-进程名和进程号PID的互查"><a href="#1-进程名和进程号PID的互查" class="headerlink" title="1.进程名和进程号PID的互查"></a>1.进程名和进程号PID的互查</h2><h4 id="1-1根据进程名查进程号PID-PID是进程标识符"><a href="#1-1根据进程名查进程号PID-PID是进程标识符" class="headerlink" title="1.1根据进程名查进程号PID(PID是进程标识符)"></a>1.1根据进程名查进程号PID(PID是进程标识符)</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep 进程名</span><br></pre></td></tr></table></figure><p>比如：查看tomcat进程的PID编号</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep tomcat</span><br></pre></td></tr></table></figure><p>如图，第一个就是查到的PID编号</p><p><img src="../img/%E6%88%AA%E5%9B%BE.png" alt="截图"></p><h5 id="还可以使用ps-aux-grep-xxx，效果与ps-ef-grep-xxx一样，只不过信息会更详细。"><a href="#还可以使用ps-aux-grep-xxx，效果与ps-ef-grep-xxx一样，只不过信息会更详细。" class="headerlink" title="还可以使用ps -aux | grep xxx，效果与ps -ef | grep xxx一样，只不过信息会更详细。"></a>还可以使用<code>ps -aux | grep xxx</code>，效果与<code>ps -ef | grep xxx</code>一样，只不过信息会更详细。</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -aux | grep 进程名</span><br></pre></td></tr></table></figure><p>PID编号可以用来强制结束某进程。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 PID编号</span><br></pre></td></tr></table></figure><p>比如：强制结束tomcat进程</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">5087为上边查到的tomcat的PID</span></span><br><span class="line">kill -9 5087</span><br></pre></td></tr></table></figure><h4 id="1-2根据进程号查进程名"><a href="#1-2根据进程号查进程名" class="headerlink" title="1.2根据进程号查进程名"></a>1.2根据进程号查进程名</h4><p>将上边的进程名换成进程号即可。（这个用的比较少，一般都是根据进程名去查进程号）</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep 进程号</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -aux | grep 进程号</span><br></pre></td></tr></table></figure><h2 id="2-端口号和进程号PID的互查"><a href="#2-端口号和进程号PID的互查" class="headerlink" title="2.端口号和进程号PID的互查"></a>2.端口号和进程号PID的互查</h2><h5 id="根据进程PID查端口号"><a href="#根据进程PID查端口号" class="headerlink" title="根据进程PID查端口号"></a>根据进程PID查端口号</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i | grep 进程号</span><br></pre></td></tr></table></figure><p><img src="../img/QQ%E6%88%AA%E5%9B%BE20201223091932.png" alt="QQ截图20201223091932"></p><p>或使用</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -nap | grep 进程号</span><br></pre></td></tr></table></figure><p><img src="../img/QQ%E6%88%AA%E5%9B%BE20201223092109.png" alt="QQ截图20201223092109"></p><h5 id="根据端口号查进程号PID"><a href="#根据端口号查进程号PID" class="headerlink" title="根据端口号查进程号PID"></a>根据端口号查进程号PID</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:端口号</span><br></pre></td></tr></table></figure><p><img src="../img/QQ%E6%88%AA%E5%9B%BE20201223092227.png" alt="QQ截图20201223092227"></p><p>或</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -nap | grep 端口号</span><br></pre></td></tr></table></figure><p><img src="../img/QQ%E6%88%AA%E5%9B%BE20201223092403.png" alt="QQ截图20201223092403"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1-进程名和进程号PID的互查&quot;&gt;&lt;a href=&quot;#1-进程名和进程号PID的互查&quot; class=&quot;headerlink&quot; title=&quot;1.进程名和进程号PID的互查&quot;&gt;&lt;/a&gt;1.进程名和进程号PID的互查&lt;/h2&gt;&lt;h4 id=&quot;1-1根据进程名查进程号P</summary>
+      
+    
+    
+    
+    <category term="服务器" scheme="http://zzy521.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+    <category term="Linux" scheme="http://zzy521.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo新建博客显示分类及标签</title>
+    <link href="http://zzy521.com/posts/4d9beafe.html"/>
+    <id>http://zzy521.com/posts/4d9beafe.html</id>
+    <published>2020-12-20T12:40:11.000Z</published>
+    <updated>2020-12-20T12:57:08.004Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>进入hexo博客所在的根目录，输入如下命令：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure><p>成功后提示：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Created: D:\Hexo\source\categories\index.md</span><br></pre></td></tr></table></figure><p>index.md的内容如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2020-12-20 20:26:06</span><br><span class="line">---</span><br></pre></td></tr></table></figure><p>需要修改为</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">date: 2020-12-20 20:26:06</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">layout: categories</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure><h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p>在控制台中输入如下命令：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure><p>成功后提示：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Created: D:\Hexo\source\tags\index.md</span><br></pre></td></tr></table></figure><p>index.md的内容如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2020-12-20 20:51:11</span><br><span class="line">---</span><br></pre></td></tr></table></figure><p>修改为</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">date: 2020-12-20 20:51:11</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">layout: tags</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure><h2 id="修改模板"><a href="#修改模板" class="headerlink" title="修改模板"></a>修改模板</h2><p>修改<code>scaffolds</code>中的<code>post</code>模板</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories:</span><br><span class="line">  - 文章分类</span><br><span class="line">tags:</span><br><span class="line">  - 文章标签</span><br><span class="line">toc: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;分类&quot;&gt;&lt;a href=&quot;#分类&quot; class=&quot;headerlink&quot; title=&quot;分类&quot;&gt;&lt;/a&gt;分类&lt;/h2&gt;&lt;p&gt;进入hexo博客所在的根目录，输入如下命令：&lt;/p&gt;
+&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;</summary>
+      
+    
+    
+    
+    <category term="开发工具" scheme="http://zzy521.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="Hexo" scheme="http://zzy521.com/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在服务器上安装运行EOS的Tomcat的方法</title>
+    <link href="http://zzy521.com/posts/eba5960e.html"/>
+    <id>http://zzy521.com/posts/eba5960e.html</id>
+    <published>2020-12-20T09:01:25.000Z</published>
+    <updated>2020-12-23T00:50:06.565Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-防火墙开启端口号"><a href="#1-防火墙开启端口号" class="headerlink" title="1.防火墙开启端口号"></a>1.防火墙开启端口号</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看firewall的状态</span></span><br><span class="line">firewall-cmd --state</span><br><span class="line"><span class="meta">#</span><span class="bash"> 开启（如果防火墙未开启的话先开启）</span></span><br><span class="line">service firewalld start</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查询端口是否开放</span></span><br><span class="line">firewall-cmd --query-port=8080/tcp</span><br><span class="line">firewall-cmd --query-port=8009/tcp</span><br><span class="line"><span class="meta">#</span><span class="bash"> 开放8080端口</span></span><br><span class="line">firewall-cmd --permanent --add-port=8080/tcp</span><br><span class="line"><span class="meta">#</span><span class="bash"> 开放8009端口</span></span><br><span class="line">firewall-cmd --permanent --add-port=8009/tcp</span><br><span class="line"><span class="meta">#</span><span class="bash">重启防火墙(修改配置后要重启防火墙)</span></span><br><span class="line">firewall-cmd --reload</span><br></pre></td></tr></table></figure><h2 id="2-将压缩包复制到服务器并打开"><a href="#2-将压缩包复制到服务器并打开" class="headerlink" title="2.将压缩包复制到服务器并打开"></a>2.将压缩包复制到服务器并打开</h2><p>在<code>/usr/local</code>文件夹下新建名为tomcat的文件夹，将名为<code>apache-tomcat-7.0.54.tar</code>的压缩包进去</p><p>进入tomcat文件夹下</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/tomcat</span><br></pre></td></tr></table></figure><p>解压</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf apache-tomcat-7.0.54.tar</span><br></pre></td></tr></table></figure><h2 id="3-调大Tomcat的jvm内存"><a href="#3-调大Tomcat的jvm内存" class="headerlink" title="3.调大Tomcat的jvm内存"></a>3.调大Tomcat的jvm内存</h2><p>在生产环境中，tomcat内存设置不好很容易出现JVM内存溢出，解决方法就是修改<code>Tomcat</code>中的<code>catalina.sh</code>文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">进入bin目录下</span></span><br><span class="line">cd /usr/local/tomcat/apache-tomcat-7.0.54/bin</span><br><span class="line"><span class="meta">#</span><span class="bash">打开catalina.sh文件</span></span><br><span class="line">vi catalina.sh</span><br><span class="line"><span class="meta">#</span><span class="bash">按i进入编辑模式，找到cygwin=<span class="literal">false</span>，在这一行的前面加入参数，具体如下，按Esc退出编辑模式，再输入:wq！点击回车保存</span></span><br><span class="line">JAVA_OPTS=&quot;-server -Xms800m -Xmx800m -XX:PermSize=256m -XX:MaxPermSize=512m -XX:MaxNewSize=512m&quot;</span><br><span class="line"></span><br></pre></td></tr></table></figure><h5 id="其他说明："><a href="#其他说明：" class="headerlink" title="其他说明："></a>其他说明：</h5><ol><li>“m”说明单位是MB，否则默认是KB</li><li>一般使用物理内存的80%作为堆大小</li><li>一般把-Xms和-Xmx设为一样大</li><li>一般把-Xmn设置为-Xmx值的1/4</li><li>一般将堆的总大小的50%到60%分配给新生成的池</li></ol><h5 id="jvm参数说明："><a href="#jvm参数说明：" class="headerlink" title="jvm参数说明："></a>jvm参数说明：</h5><ul><li><code>-server</code> 一定要作为第一个参数，启用JDK的server版本，在多个CPU时性能佳<br><code>-Xms java Heap</code>初始大小。 默认是物理内存的1/64。<br><code>-Xmx java heap</code>最大值。建议均设为物理内存的80%。不可超过物理内存。<br><code>-Xmn java heap</code>最小值，一般设置为Xmx的3、4分之一。<br><code>-XX:PermSize</code> 设定内存的永久保存区初始大小，缺省值为64M。<br><code>-XX:MaxPermSize</code> 设定内存的永久保存区最大大小，缺省值为64M。<br><code>-XX:SurvivorRatio</code>=2 生还者池的大小，默认是2。如<br><code>-XX:NewSize</code> 新生成的池的初始大小。 缺省值为2M。<br><code>-XX:MaxNewSize</code> 新生成的池的最大大小。 缺省值为32M。<br><code>+XX:AggressiveHeap</code> 让jvm忽略Xmx参数，疯狂地吃完一个G物理内存，再吃尽一个G的swap。<br><code>-Xss</code> 每个线程的Stack大小<br><code>-verbose:gc</code> 现实垃圾收集信息<br><code>-Xloggc:gc.log</code> 指定垃圾收集日志文件<br><code>-XX:+UseParNewGC</code> 缩短minor收集的时间<br><code>-XX:+UseConcMarkSweepGC</code> 缩短major收集的时间<br><code>-XX:userParNewGC</code> 可用来设置并行收集(多CPU)<br><code>-XX:ParallelGCThreads</code> 可用来增加并行度(多CPU)<br><code>-XX:UseParallelGC</code> 设置后可以使用并行清除收集器(多CPU)</li></ul><h2 id="4-改变端口号"><a href="#4-改变端口号" class="headerlink" title="4.改变端口号"></a>4.改变端口号</h2><p>如果不用默认的8080端口则需要修改端口号，在<code>conf</code>文件夹下的<code>server.xml</code>文件中修改。换端口号的话需要在防火墙开启相应的端口号，参考第一步。（如果使用默认的8080端口则跳过此步骤）</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">进入conf目录下</span></span><br><span class="line">cd /usr/local/tomcat/apache-tomcat-7.0.54/conf</span><br><span class="line"><span class="meta">#</span><span class="bash">打开server.xml文件</span></span><br><span class="line">vi server.xml</span><br><span class="line"><span class="meta">#</span><span class="bash">按i进入编辑模式，找到</span> </span><br><span class="line">&lt;Connector URIEncoding=&quot;UTF-8&quot; connectionTimeout=&quot;20000&quot; port=&quot;8080&quot; protocol=&quot;HTTP/1.1&quot; redirectPort=&quot;8443&quot;/&gt;，</span><br><span class="line"><span class="meta">#</span><span class="bash">将其中的8080换为需要的端口号，例如8090，按Esc退出编辑模式，再输入:wq！点击回车保存</span></span><br><span class="line">&lt;Connector URIEncoding=&quot;UTF-8&quot; connectionTimeout=&quot;20000&quot; port=&quot;8090&quot; protocol=&quot;HTTP/1.1&quot; redirectPort=&quot;8443&quot;/&gt;</span><br></pre></td></tr></table></figure><h2 id="5-启动运行"><a href="#5-启动运行" class="headerlink" title="5.启动运行"></a>5.启动运行</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">进入bin目录下</span></span><br><span class="line">cd /usr/local/tomcat/apache-tomcat-7.0.54/bin</span><br><span class="line"><span class="meta">#</span><span class="bash">启动运行</span></span><br><span class="line">./startup.sh</span><br></pre></td></tr></table></figure><p>部署完项目需要重启tomcat</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">进入bin目录下</span></span><br><span class="line">cd /usr/local/tomcat/apache-tomcat-7.0.54/bin</span><br><span class="line"><span class="meta">#</span><span class="bash">停止运行</span></span><br><span class="line">./shutdown.sh</span><br><span class="line"><span class="meta">#</span><span class="bash">启动运行</span></span><br><span class="line">./startup.sh</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1-防火墙开启端口号&quot;&gt;&lt;a href=&quot;#1-防火墙开启端口号&quot; class=&quot;headerlink&quot; title=&quot;1.防火墙开启端口号&quot;&gt;&lt;/a&gt;1.防火墙开启端口号&lt;/h2&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;t</summary>
+      
+    
+    
+    
+    <category term="服务器" scheme="http://zzy521.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    
+    <category term="Linux" scheme="http://zzy521.com/tags/Linux/"/>
+    
+    <category term="Tomcat" scheme="http://zzy521.com/tags/Tomcat/"/>
+    
+  </entry>
+  
+</feed>
