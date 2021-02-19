@@ -6,7 +6,7 @@
   <link href="http://zzy521.com/atom.xml" rel="self"/>
   
   <link href="http://zzy521.com/"/>
-  <updated>2021-01-21T08:48:36.435Z</updated>
+  <updated>2021-02-19T07:16:21.985Z</updated>
   <id>http://zzy521.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>将Java程序打包为exe文件并和jre一起打包为安装包</title>
+    <link href="http://zzy521.com/posts/eeae6a0e.html"/>
+    <id>http://zzy521.com/posts/eeae6a0e.html</id>
+    <published>2021-02-19T03:36:00.000Z</published>
+    <updated>2021-02-19T07:16:21.985Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-将Java程序导出的jar文件打包为exe文件"><a href="#1-将Java程序导出的jar文件打包为exe文件" class="headerlink" title="1.将Java程序导出的jar文件打包为exe文件"></a>1.将Java程序导出的jar文件打包为exe文件</h2><p>1.1打开安装好的exe4j软件，首先看到的是一个欢迎界面，直接【next】就可以了</p><img src="../img/1.png" alt="1" style="zoom:67%;" /><p>1.2在第二步中我们选择【JAR in EXE mode】，然后【next】</p><img src="../img/2.png" alt="img" style="zoom:67%;" /><p>1.3.第三步中需要输入程序的缩写名字和指明输出目录，就是程序的保存目录，按照自己的情况设置就行，没啥特别要求，然后【next】</p><img src="../img/3.png" alt="img" style="zoom: 67%;" /><p>1.4.需要指定程序的名字，设置程序的图标，注意，程序图标要用ico格式的图片</p><img src="../img/4.png" alt="img" style="zoom:67%;" /><p>1.5.然后我们在左边的菜单栏中选择【32 bit or 64 bit】，勾上【Generate 64 bit executeable】，不勾选为32位，勾选为64位</p><img src="../img/5.png" alt="img" style="zoom:67%;" /><p>1.6.添加我们的jar包，点击右边绿色的 “+”号，然后选择【Archive】，打开浏览目录，找到我们的jar包，然后选择【打开】，【ok】</p><img src="../img/6.png" alt="img" style="zoom:67%;" /><img src="../img/7.png" alt="img" style="zoom:67%;" /><p>1.7.然后选择主类，在Main class后面，选择【浏览】，找到主类，添加上主类，然后【next】</p><img src="../img/8.png" alt="img" style="zoom:67%;" /><img src="../img/9.png" alt="img" style="zoom:67%;" /><p>1.8.设置JRE的最小最高版本，我们根据自己的情况设置，小版本设置成1.5，大版本设置成1.8，就行</p><img src="../img/10.png" alt="img" style="zoom:67%;" /><p>1.9.然后点击【Advanced Options】，选择【Search sequence】，将我们的JRE添加到软件中，这样的话，我们的代码可以在别的没有安装Java环境的电脑上运行；点击右边的添加，选择【Directory】，然后选择【浏览】，找到我们的JRE，然后添加（添加之后把前面的删掉然后加一个点，这里我写的是.\jre1.8.0_73，使用相对路径，之后把生成的程序和jre的文件夹拷贝到同一个文件夹下）</p><img src="../img/11.png" alt="img" style="zoom:67%;" /><p>1.10.然后点击左侧的【Preferred VM】，选择【Client hotspot VM】，然后【next】</p><img src="../img/12.png" alt="img" style="zoom:67%;" /><p>1.11.其余的步骤直接默认就行了，这样生成的exe文件就能正常运行了！</p><h2 id="2-将jre环境和exe文件一起打包为程序安装包"><a href="#2-将jre环境和exe文件一起打包为程序安装包" class="headerlink" title="2.将jre环境和exe文件一起打包为程序安装包"></a>2.将jre环境和exe文件一起打包为程序安装包</h2><p>需要安装<a href="https://www.baidu.com/link?url=Bejop3spAjw-LqNUd2iZw9OGTAIwdrhK3o32ssHxwdFlOlv6ZNhpIq6IGkNgn1h5vPOIPiEeR1CDMjUMhwF0rK&wd=&eqid=afdafbb7000c18bc00000004602f5369"><em>Inno Setup</em></a></p><p>菜单栏→新建，打开脚本向导</p><img src="../img/2021-02-19_140259.png" alt="2021-02-19_140259" style="zoom: 50%;" /><p>直接下一步</p><img src="../img/QQ截图20210219140645.png" alt="QQ截图20210219140645" style="zoom: 50%;" /><p>填写应用程序名称和应用程序版本，其他两个可以选填。</p><img src="../img/QQ截图20210219140927.png" alt="QQ截图20210219140927" style="zoom:50%;" /><p>这一步可以默认，应用程序所在的文件夹默认为上一步填的应用程序名称</p><img src="../img/QQ截图20210219142039.png" alt="QQ截图20210219142039" style="zoom:50%;" /><p>主执行文件选择用exe4j打包好的那个exe文件，然后点击添加文件夹选中jre文件夹，下一步</p><img src="../img/QQ截图20210219142521.png" alt="QQ截图20210219142521" style="zoom:50%;" /><p>直接下一步</p><img src="../img/QQ截图20210219145453.png" alt="QQ截图20210219145453" style="zoom:50%;" /><p>接着下一步</p><img src="../img/QQ截图20210219145541.png" alt="QQ截图20210219145541" style="zoom:50%;" /><p>继续下一步</p><img src="../img/QQ截图20210219145557.png" alt="QQ截图20210219145557" style="zoom:50%;" /><p>还是下一步</p><img src="../img/QQ截图20210219145610.png" alt="QQ截图20210219145610" style="zoom:50%;" /><p>选择安装程序的保存位置、安装程序文件名、安装程序的图标。安装密码为可选项</p><img src="../img/QQ截图20210219145922.png" alt="QQ截图20210219145922" style="zoom:50%;" /><p>继续下一步</p><img src="../img/QQ截图20210219150133.png" alt="QQ截图20210219150133" style="zoom:50%;" /><p>点击完成</p><img src="../img/QQ截图20210219150217.png" alt="QQ截图20210219150217" style="zoom:50%;" /><p>在生成的脚本中找到**[Files]<strong>,然后找到刚刚添加的文件夹路径，在文件加路径后的<code>&#123;app&#125;</code>后边加上<code>\jre</code>，jre就是程序安装后在安装路径下生成的文件夹名称，</strong>这里文件夹的名称与上边1.9中填写的路径要保持一致**，如果上边是跟我的文件夹名一样的，那这里也要写为.\jre1.8.0_73。</p><p><img src="../img/QQ%E6%88%AA%E5%9B%BE20210219150416.png" alt="QQ截图20210219150416"></p><p>然后在菜单栏点击构建→编译即可。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;1-将Java程序导出的jar文件打包为exe文件&quot;&gt;&lt;a href=&quot;#1-将Java程序导出的jar文件打包为exe文件&quot; class=&quot;headerlink&quot; title=&quot;1.将Java程序导出的jar文件打包为exe文件&quot;&gt;&lt;/a&gt;1.将Java程序导出</summary>
+      
+    
+    
+    
+    <category term="开发工具" scheme="http://zzy521.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="exe" scheme="http://zzy521.com/tags/exe/"/>
+    
+    <category term="Java" scheme="http://zzy521.com/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>EOS中Restful服务的开发与调用</title>
