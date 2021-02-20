@@ -18,18 +18,23 @@
   
   
   <title>EOS中Restful服务的开发与调用 | zzy</title>
-  <meta name="description" content="开发Restful服务创建服务实现类">
+  <meta name="description" content="开发Restful服务创建服务实现类创建一个class，添加下列注解和代码，配置接口访问的入口，需要注意的是Path中的路径必须是与web.xml中resteasyservlet配置的相同，否则将无法访问到接口，此处我们配置在&#x2F;rest&#x2F;services下   123456789101112131415161718192021222324252627282930313233343536373839">
 <meta property="og:type" content="article">
 <meta property="og:title" content="EOS中Restful服务的开发与调用">
 <meta property="og:url" content="http://zzy521.com/posts/5a3d390e.html">
 <meta property="og:site_name" content="张占阳的博客">
-<meta property="og:description" content="开发Restful服务创建服务实现类">
+<meta property="og:description" content="开发Restful服务创建服务实现类创建一个class，添加下列注解和代码，配置接口访问的入口，需要注意的是Path中的路径必须是与web.xml中resteasyservlet配置的相同，否则将无法访问到接口，此处我们配置在&#x2F;rest&#x2F;services下   123456789101112131415161718192021222324252627282930313233343536373839">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://zzy521.com/img/image-20210220101202007.png">
+<meta property="og:image" content="http://zzy521.com/img/image-20210220101724380.png">
+<meta property="og:image" content="http://zzy521.com/img/image-20210220101923074.png">
 <meta property="article:published_time" content="2021-01-20T09:21:05.000Z">
-<meta property="article:modified_time" content="2021-01-21T08:48:36.435Z">
+<meta property="article:modified_time" content="2021-02-20T02:24:44.139Z">
 <meta property="article:author" content="张占阳">
-<meta property="article:tag" content="文章标签">
+<meta property="article:tag" content="EOS">
+<meta property="article:tag" content="Rest接口">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://zzy521.com/img/image-20210220101202007.png">
   <!-- Canonical links -->
   <link rel="canonical" href="http://zzy521.com/posts/5a3d390e.html">
   
@@ -183,7 +188,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB/">文章分类</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a><span class="category-list-count">4</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -193,7 +198,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EOS/" rel="tag">EOS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tomcat/" rel="tag">Tomcat</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exe/" rel="tag">exe</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/" rel="tag">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%AB%A0%E6%A0%87%E7%AD%BE/" rel="tag">文章标签</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%AF%B4%E6%98%8E/" rel="tag">项目说明</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EOS/" rel="tag">EOS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rest%E6%8E%A5%E5%8F%A3/" rel="tag">Rest接口</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tomcat/" rel="tag">Tomcat</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exe/" rel="tag">exe</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/" rel="tag">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%AF%B4%E6%98%8E/" rel="tag">项目说明</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -203,7 +208,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/EOS/" style="font-size: 13.5px;">EOS</a> <a href="/tags/Hexo/" style="font-size: 13px;">Hexo</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Linux/" style="font-size: 14px;">Linux</a> <a href="/tags/Tomcat/" style="font-size: 13.5px;">Tomcat</a> <a href="/tags/exe/" style="font-size: 13px;">exe</a> <a href="/tags/markdown/" style="font-size: 13px;">markdown</a> <a href="/tags/%E6%96%87%E7%AB%A0%E6%A0%87%E7%AD%BE/" style="font-size: 13px;">文章标签</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E8%AF%B4%E6%98%8E/" style="font-size: 13px;">项目说明</a>
+      <a href="/tags/EOS/" style="font-size: 14px;">EOS</a> <a href="/tags/Hexo/" style="font-size: 13px;">Hexo</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Linux/" style="font-size: 14px;">Linux</a> <a href="/tags/Rest%E6%8E%A5%E5%8F%A3/" style="font-size: 13px;">Rest接口</a> <a href="/tags/Tomcat/" style="font-size: 13.5px;">Tomcat</a> <a href="/tags/exe/" style="font-size: 13px;">exe</a> <a href="/tags/markdown/" style="font-size: 13px;">markdown</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E8%AF%B4%E6%98%8E/" style="font-size: 13px;">项目说明</a>
     </div>
   </div>
 
@@ -258,7 +263,7 @@
             
             <div class="item-inner">
               <p class="item-category">
-                <a class="category-link" href="/categories/%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB/">文章分类</a>
+                <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
               </p>
               <p class="item-title">
                 <a href="/posts/5a3d390e.html" class="title">EOS中Restful服务的开发与调用</a>
@@ -314,7 +319,7 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91Restful%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.</span> <span class="toc-text">开发Restful服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">创建服务实现类</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91Restful%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.</span> <span class="toc-text">开发Restful服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%AE%9E%E7%8E%B0%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">创建服务实现类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">创建配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%BE%91web-xml%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">编辑web.xml文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">注意事项：</span></a></li></ol>
     </nav>
   </div>
 </aside>
@@ -343,13 +348,13 @@
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB/">文章分类</a>
+    <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/%E6%96%87%E7%AB%A0%E6%A0%87%E7%AD%BE/" rel="tag">文章标签</a>
+	<a class="article-tag-link-link" href="/tags/EOS/" rel="tag">EOS</a>, <a class="article-tag-link-link" href="/tags/Rest%E6%8E%A5%E5%8F%A3/" rel="tag">Rest接口</a>
   </span>
 
 
@@ -365,17 +370,29 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/5a3d390e.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 12(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 747(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 3(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="开发Restful服务"><a href="#开发Restful服务" class="headerlink" title="开发Restful服务"></a>开发Restful服务</h2><h3 id="创建服务实现类"><a href="#创建服务实现类" class="headerlink" title="创建服务实现类"></a>创建服务实现类</h3>
+        <h2 id="开发Restful服务"><a href="#开发Restful服务" class="headerlink" title="开发Restful服务"></a>开发Restful服务</h2><h3 id="创建服务实现类"><a href="#创建服务实现类" class="headerlink" title="创建服务实现类"></a>创建服务实现类</h3><p>创建一个class，添加下列注解和代码，配置接口访问的入口，需要注意的是Path中的路径必须是与web.xml中resteasyservlet配置的相同，否则将无法访问到接口，此处我们配置在/rest/services下</p>
+<img src="../img/image-20210220101202007.png" alt="image-20210220101202007" style="zoom:50%;" />
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xcmg.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="keyword">import</span> javax.ws.rs.GET;</span><br><span class="line"><span class="keyword">import</span> javax.ws.rs.POST;</span><br><span class="line"><span class="keyword">import</span> javax.ws.rs.Path;</span><br><span class="line"><span class="keyword">import</span> javax.ws.rs.PathParam;</span><br><span class="line"><span class="keyword">import</span> javax.ws.rs.Produces;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"><span class="keyword">import</span> com.eos.common.connection.DataSourceHelper;</span><br><span class="line"><span class="keyword">import</span> com.eos.engine.component.ILogicComponent;</span><br><span class="line"><span class="keyword">import</span> com.eos.foundation.data.DataObjectUtil;</span><br><span class="line"><span class="keyword">import</span> com.eos.workflow.api.BPSServiceClientFactory;</span><br><span class="line"><span class="keyword">import</span> com.primeton.components.rest.annotation.JSONParam;</span><br><span class="line"><span class="keyword">import</span> com.primeton.ext.engine.component.LogicComponentFactory;</span><br><span class="line"><span class="keyword">import</span> com.xcmg.getRsInfo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> commonj.sdo.DataObject;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Path(&quot;/rest/services/RoleService&quot;)</span></span><br><span class="line"><span class="meta">@Produces(&#123;&quot;application/json&quot;&#125;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProcessStartService</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@POST</span></span><br><span class="line">	<span class="meta">@Path(&quot;/addProcess&quot;)</span></span><br><span class="line">	<span class="comment">//新增数据</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span>  String  <span class="title">addRole</span><span class="params">(<span class="meta">@JSONParam(&quot;role&quot;)</span>DataObject[] role)</span><span class="keyword">throws</span> Throwable</span>&#123;</span><br><span class="line">		<span class="comment">//获取后台返回值</span></span><br><span class="line">		Map ms= <span class="keyword">new</span> HashMap();</span><br><span class="line">		<span class="comment">//调用数据模型									   </span></span><br><span class="line">		role = DataObjectUtil.convertDataObjects(role,<span class="string">&quot;com.primeton.eos.Advice.Advice&quot;</span>,<span class="keyword">false</span>);</span><br><span class="line">		System.err.println(role.length);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; role.length; i++) &#123;</span><br><span class="line">			Object[] inParameters = &#123;</span><br><span class="line">									role[i].get(<span class="string">&quot;proposer&quot;</span>),</span><br><span class="line">									role[i].get(<span class="string">&quot;department&quot;</span>),</span><br><span class="line">									role[i].get(<span class="string">&quot;phone&quot;</span>),</span><br><span class="line">									role[i].get(<span class="string">&quot;category&quot;</span>),</span><br><span class="line">									role[i].get(<span class="string">&quot;carrydepartment&quot;</span>),</span><br><span class="line">									role[i].get(<span class="string">&quot;proposal&quot;</span>),</span><br><span class="line">									role[i].get(<span class="string">&quot;actuality&quot;</span>),</span><br><span class="line">									role[i].get(<span class="string">&quot;improvement&quot;</span>)</span><br><span class="line">									&#125;;</span><br><span class="line">			<span class="comment">//打印数据</span></span><br><span class="line">			Object[] params = <span class="keyword">new</span> Object[<span class="number">1</span>];</span><br><span class="line">			params[<span class="number">0</span>] = role;</span><br><span class="line">			Object[] result = <span class="keyword">null</span>;</span><br><span class="line">			<span class="comment">//设置登录用户</span></span><br><span class="line">			String userid= (String)role[i].get(<span class="string">&quot;state&quot;</span>);</span><br><span class="line">			BPSServiceClientFactory.getLoginManager().setCurrentUser(userid, <span class="string">&quot;sysadmin&quot;</span>);</span><br><span class="line">			</span><br><span class="line">							<span class="comment">//构件名称</span></span><br><span class="line">			ILogicComponent logicComponent = LogicComponentFactory.create(<span class="string">&quot;com.primeton.eos.phoneProcess&quot;</span>);</span><br><span class="line">											<span class="comment">//逻辑流名称</span></span><br><span class="line">			result = logicComponent.invoke(<span class="string">&quot;StartProcess&quot;</span>, inParameters);</span><br><span class="line">			String count = (String)result[<span class="number">0</span>];</span><br><span class="line">			Long id = (Long)result[<span class="number">1</span>];</span><br><span class="line">			System.err.println(<span class="string">&quot;-----------------------》》&quot;</span>+count);</span><br><span class="line">			<span class="keyword">if</span>(count.equals(<span class="string">&quot;1&quot;</span>))&#123;</span><br><span class="line">				ms.put(<span class="string">&quot;errorCode&quot;</span>,<span class="string">&quot;00100&quot;</span>);</span><br><span class="line">				ms.put(<span class="string">&quot;errorMsg&quot;</span>, <span class="string">&quot;新增数据成功&quot;</span>);</span><br><span class="line">				ms.put(<span class="string">&quot;value&quot;</span>,id);</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="comment">//更新数据</span></span><br><span class="line">				ms.put(<span class="string">&quot;errorCode&quot;</span>,<span class="string">&quot;00200&quot;</span>);</span><br><span class="line">				ms.put(<span class="string">&quot;errorMsg&quot;</span>, <span class="string">&quot;新增数据失败&quot;</span>);</span><br><span class="line">				ms.put(<span class="string">&quot;value&quot;</span>,<span class="string">&quot;&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span>  JSON.toJSONString(ms);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@GET</span></span><br><span class="line">	<span class="meta">@Path(&quot;/getProcess/&#123;productCode&#125;&quot;)</span></span><br><span class="line">	<span class="comment">//查询数据是否存在</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">selectEngineNumberInfoCount</span><span class="params">(<span class="meta">@PathParam(&quot;productCode&quot;)</span>String productCode)</span> <span class="keyword">throws</span> Throwable</span>&#123;</span><br><span class="line">		Map ms= <span class="keyword">new</span> HashMap();</span><br><span class="line">		DataSource db = DataSourceHelper.getDataSource(<span class="string">&quot;default&quot;</span>);</span><br><span class="line">		<span class="comment">//查询用户</span></span><br><span class="line">		String vininfo = <span class="string">&quot;SELECT a.PROCESSINSTID,a.PROPOSER,b.NAME DEPARTMENT,a.PHONE,c.NAME CATEGORY,d.NAME CARRYDEPARTMENT,a.PROPOSAL,a.ACTUALITY,a.IMPROVEMENT,a.SUBMITTIME,a.OPINION1,a.CHECKTIME,a.OPINION2,a.RECHECKTIME,a.STATE FROM ((ADVICE a LEFT JOIN DEPARTMENT b ON a.DEPARTMENT=b.DID)LEFT JOIN CATEGORY c ON a.CATEGORY=c.ID)LEFT JOIN CARRYDEPARTMENT d ON a.CARRYDEPARTMENT=d.ID WHERE PHONE = &#x27;&quot;</span>+productCode+<span class="string">&quot;&#x27; ORDER BY PROCESSINSTID DESC&quot;</span>;		<span class="comment">//获取密码</span></span><br><span class="line">		List list = getRsInfo.getRsListbySql(vininfo, db.getConnection());</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span>  JSON.toJSONString(list);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h2><p>在编辑的java同目录下创建文件restconfig.properties并录入以下内容（等号后是对应的类全名）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resteasy.resources&#x3D;com.xcmg.service.ProcessStartService</span><br></pre></td></tr></table></figure>
+<img src="../img/image-20210220101724380.png" alt="image-20210220101724380" style="zoom: 50%;" />
+
+<h2 id="编辑web-xml文件"><a href="#编辑web-xml文件" class="headerlink" title="编辑web.xml文件"></a>编辑web.xml文件</h2><p>编辑web.xml文件，在rest.config.locations下的param-value标签下新增restconfig.properties对应路径，需要增加英文逗号与已有内容分开，保存编辑后需要右键web.xml文件进行部署。</p>
+<img src="../img/image-20210220101923074.png" alt="image-20210220101923074" style="zoom:50%;" />
+
+<h2 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h2><p><strong>1.修改了web.xml要手动部署web.xml</strong><br><strong>2.web.xml中的servlet-mapping下的url-pattern要和配置访问的地址对应</strong><br><strong>3.在rest.config.locations下的param-value标签下新增restconfig.properties对应路径</strong></p>
+
       
     </div>
     <div class="article-footer">
