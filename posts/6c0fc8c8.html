@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Python处理Excel文件 | zzy</title>
+  <meta name="description" content="做了一个从Excel中筛选需要的列和行；并根据内容不同放到不同的Excel中的程序 导入需要的包123456789import sysimport xlrdimport xlwtfrom datetime import datetimefrom xlrd import xldate_as_tupleimport tkinterimport osfrom tkinter import filedia">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python处理Excel文件">
+<meta property="og:url" content="http://zzy521.com/posts/6c0fc8c8.html">
+<meta property="og:site_name" content="张占阳的博客">
+<meta property="og:description" content="做了一个从Excel中筛选需要的列和行；并根据内容不同放到不同的Excel中的程序 导入需要的包123456789import sysimport xlrdimport xlwtfrom datetime import datetimefrom xlrd import xldate_as_tupleimport tkinterimport osfrom tkinter import filedia">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-02-25T03:42:02.000Z">
+<meta property="article:modified_time" content="2021-02-25T07:43:32.321Z">
+<meta property="article:author" content="张占阳">
+<meta property="article:tag" content="文章标签">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://zzy521.com/posts/6c0fc8c8.html">
+  
+    <link rel="alternate" href="/atom.xml" title="张占阳的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/zzy2019520" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">张占阳</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">软件开发工程师</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 徐州, 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/zzy2019520" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/6000361757" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB/">文章分类</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/EOS/" rel="tag">EOS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Rest%E6%8E%A5%E5%8F%A3/" rel="tag">Rest接口</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tomcat/" rel="tag">Tomcat</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/exe/" rel="tag">exe</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/" rel="tag">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%96%87%E7%AB%A0%E6%A0%87%E7%AD%BE/" rel="tag">文章标签</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E8%AF%B4%E6%98%8E/" rel="tag">项目说明</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/EOS/" style="font-size: 14px;">EOS</a> <a href="/tags/Hexo/" style="font-size: 13px;">Hexo</a> <a href="/tags/Java/" style="font-size: 13px;">Java</a> <a href="/tags/Linux/" style="font-size: 14px;">Linux</a> <a href="/tags/Rest%E6%8E%A5%E5%8F%A3/" style="font-size: 13px;">Rest接口</a> <a href="/tags/Tomcat/" style="font-size: 13.5px;">Tomcat</a> <a href="/tags/exe/" style="font-size: 13px;">exe</a> <a href="/tags/markdown/" style="font-size: 13px;">markdown</a> <a href="/tags/%E6%96%87%E7%AB%A0%E6%A0%87%E7%AD%BE/" style="font-size: 13px;">文章标签</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E8%AF%B4%E6%98%8E/" style="font-size: 13px;">项目说明</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">一月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">十二月 2020</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB/">文章分类</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/6c0fc8c8.html" class="title">Python处理Excel文件</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-02-25T03:42:02.000Z" itemprop="datePublished">2021-02-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/24cd4f39.html" class="title">服务器添加EOS的workspace功能</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-02-20T01:13:00.000Z" itemprop="datePublished">2021-02-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/eeae6a0e.html" class="title">将Java程序打包为exe文件并和jre一起打包为安装包</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-02-19T03:36:00.000Z" itemprop="datePublished">2021-02-19</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/5a3d390e.html" class="title">EOS中Restful服务的开发与调用</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-01-20T09:21:05.000Z" itemprop="datePublished">2021-01-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
+              </p>
+              <p class="item-title">
+                <a href="/posts/7067bb35.html" class="title">Markdown生成带侧边目录的HTML</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-01-03T02:24:25.000Z" itemprop="datePublished">2021-01-03</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <nav id="toc" class="article-toc">
+      <h3 class="toc-title">文章目录</h3>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E9%9C%80%E8%A6%81%E7%9A%84%E5%8C%85"><span class="toc-number">1.</span> <span class="toc-text">导入需要的包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E5%8F%96Excel%E6%96%87%E4%BB%B6%E5%B9%B6%E8%8E%B7%E5%8F%96%E6%96%87%E4%BB%B6%E5%90%8D%E5%92%8C%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84"><span class="toc-number">2.</span> <span class="toc-text">选取Excel文件并获取文件名和文件路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BB%E5%8F%96Excel%E6%96%87%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">读取Excel文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9Excel%E5%86%85%E9%9C%80%E8%A6%81%E4%BF%AE%E6%94%B9%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">4.</span> <span class="toc-text">修改Excel内需要修改的数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%BAExcel%E6%96%87%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">将数据存储为Excel文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%8D%95%E5%85%83%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%B1%85%E4%B8%AD%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="toc-number">5.0.1.</span> <span class="toc-text">设置单元格数据居中的方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%8D%95%E5%85%83%E6%A0%BC%E9%AB%98%E5%BA%A6"><span class="toc-number">5.0.2.</span> <span class="toc-text">设置单元格高度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%8D%95%E5%85%83%E6%A0%BC%E9%AB%98%E5%BA%A6-1"><span class="toc-number">5.0.3.</span> <span class="toc-text">设置单元格高度</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E4%B8%BAtxt%E6%96%87%E4%BB%B6"><span class="toc-number">6.</span> <span class="toc-text">将数据存储为txt文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%8C%E6%88%90%E5%90%8E%E5%BC%B9%E5%87%BA%E6%8F%90%E7%A4%BA%E6%A1%86"><span class="toc-number">7.</span> <span class="toc-text">完成后弹出提示框</span></a></li></ol>
+    </nav>
+  </div>
+</aside>
+
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Python处理Excel文件" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python处理Excel文件
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/posts/6c0fc8c8.html" class="article-date">
+	  <time datetime="2021-02-25T03:42:02.000Z" itemprop="datePublished">2021-02-25</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB/">文章分类</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/%E6%96%87%E7%AB%A0%E6%A0%87%E7%AD%BE/" rel="tag">文章标签</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/6c0fc8c8.html#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 8(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p><strong>做了一个从Excel中筛选需要的列和行；并根据内容不同放到不同的Excel中的程序</strong></p>
+<h2 id="导入需要的包"><a href="#导入需要的包" class="headerlink" title="导入需要的包"></a>导入需要的包</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> xlrd</span><br><span class="line"><span class="keyword">import</span> xlwt</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">from</span> xlrd <span class="keyword">import</span> xldate_as_tuple</span><br><span class="line"><span class="keyword">import</span> tkinter</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> filedialog</span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> messagebox</span><br></pre></td></tr></table></figure>
+<h2 id="选取Excel文件并获取文件名和文件路径"><a href="#选取Excel文件并获取文件名和文件路径" class="headerlink" title="选取Excel文件并获取文件名和文件路径"></a>选取Excel文件并获取文件名和文件路径</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> filedialog</span><br><span class="line">tkinter.Tk().withdraw()  <span class="comment"># 使用tk选择文件时会出现一个框框，不影响使用但会看着很难受，所以将Tkinter.Tk()实例隐藏</span></span><br><span class="line">Filepath = filedialog.askopenfilename(title=<span class="string">u&#x27;选择文件&#x27;</span>)<span class="comment">#获取文件路径并将选择框标题设置为选择文件</span></span><br><span class="line">Filename = os.path.basename(Filepath)<span class="comment">#根据文件路径获取文件名，后边我生成新的文件需要根据选择的文件来命名</span></span><br><span class="line"><span class="keyword">if</span> Filepath == <span class="string">&#x27;&#x27;</span>:<span class="comment">#如果弹出的文件选择框未选择就关闭会导致文件路径为空，下边的代码执行会出错，所以路径为空直接结束程序</span></span><br><span class="line">    sys.exit()</span><br></pre></td></tr></table></figure>
+<h2 id="读取Excel文件"><a href="#读取Excel文件" class="headerlink" title="读取Excel文件"></a>读取Excel文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;读取工作表&#x27;&#x27;&#x27;</span></span><br><span class="line">data = xlrd.open_workbook(Filepath)<span class="comment">#根据上边的路径读取Excel文件</span></span><br><span class="line">table = data.sheets()[<span class="number">0</span>]<span class="comment">#用索引方式获取第一个sheet</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;总行数&#x27;&#x27;&#x27;</span></span><br><span class="line">nrows = table.nrows</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;总列数&#x27;&#x27;&#x27;</span></span><br><span class="line">ncols = table.ncols</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;获取第二行的列名称&#x27;&#x27;&#x27;</span></span><br><span class="line">columnName = table.row_values(<span class="number">1</span>)<span class="comment">#excel中第二行为列名，用列表记录</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;获取需要的列的字典&#x27;&#x27;&#x27;</span></span><br><span class="line">saveColumn = [<span class="string">&#x27;任务号&#x27;</span>, <span class="string">&#x27;物料编码&#x27;</span>, <span class="string">&#x27;零件图号&#x27;</span>, <span class="string">&#x27;数量&#x27;</span>, <span class="string">&#x27;材质&#x27;</span>, <span class="string">&#x27;尺寸&#x27;</span>, <span class="string">&#x27;工序&#x27;</span>, <span class="string">&#x27;完工日期&#x27;</span>, <span class="string">&#x27;备料日期&#x27;</span>, <span class="string">&#x27;成型日期&#x27;</span>, <span class="string">&#x27;仓库&#x27;</span>, <span class="string">&#x27;定额&#x27;</span>, <span class="string">&#x27;工段&#x27;</span>, <span class="string">&#x27;组件&#x27;</span>, <span class="string">&#x27;外协&#x27;</span>, <span class="string">&#x27;批次&#x27;</span>]<span class="comment">#需要保存的列的名称</span></span><br><span class="line">columnNameDictionary = &#123;&#125;<span class="comment">#声明一个字典来存储需要的列在excel中对应的列号</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(ncols):</span><br><span class="line">    <span class="keyword">if</span> columnName[i] <span class="keyword">in</span> saveColumn:<span class="comment">#如果第二列中的列名在需要保存的列的列表中；则将列名和列号存到字典中</span></span><br><span class="line">        columnNameDictionary[columnName[i]] = i</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;获取需要的数据列数据，去掉不需要的列数据&#x27;&#x27;&#x27;</span></span><br><span class="line">dataContent = []</span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> columnNameDictionary.items():<span class="comment">#根据列名字典中列名对应的数据列去获取数据内容</span></span><br><span class="line">    dataContent.append(table.col_values(value, start_rowx=<span class="number">1</span>, end_rowx=nrows))</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;去掉不需要的行数据,同时将列表存储数据的方式由列转为行&#x27;&#x27;&#x27;</span></span><br><span class="line">ncols = <span class="built_in">len</span>(dataContent)  <span class="comment"># 列数量----更新行列值</span></span><br><span class="line">nrows = <span class="built_in">len</span>(dataContent[<span class="number">0</span>])  <span class="comment"># 行数量</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;需要将材质列等于——的值整行删除&#x27;&#x27;&#x27;</span></span><br><span class="line">material = <span class="number">0</span>  <span class="comment"># 材质的列号</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(nrows):  <span class="comment"># 找到材质的列号</span></span><br><span class="line">    <span class="keyword">if</span> dataContent[i][<span class="number">0</span>] == <span class="string">&#x27;材质&#x27;</span>:</span><br><span class="line">        material = i</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">finalDataContent = []<span class="comment">#用来存储最终需要的行列数据，按行存储</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(nrows):<span class="comment">#i为行数</span></span><br><span class="line">    temp = []<span class="comment">#暂存数据的列表</span></span><br><span class="line">    <span class="keyword">if</span> dataContent[material][i] != <span class="string">&#x27;——&#x27;</span>:<span class="comment">#如果材质不等于——则将第i行数据读出</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(ncols):</span><br><span class="line">            temp.append(dataContent[j][i])</span><br><span class="line">        finalDataContent.append(temp)<span class="comment">#将读到的数据保存</span></span><br><span class="line">        temp = []</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;更新列名字典和行列数&#x27;&#x27;&#x27;</span></span><br><span class="line">ncols = <span class="built_in">len</span>(finalDataContent[<span class="number">0</span>])  <span class="comment"># 列数量</span></span><br><span class="line">nrows = <span class="built_in">len</span>(finalDataContent)  <span class="comment"># 行数量</span></span><br><span class="line">columnNameDictionary.clear()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(ncols):</span><br><span class="line">    columnNameDictionary[finalDataContent[<span class="number">0</span>][i]] = i</span><br></pre></td></tr></table></figure>
+<h2 id="修改Excel内需要修改的数据"><a href="#修改Excel内需要修改的数据" class="headerlink" title="修改Excel内需要修改的数据"></a>修改Excel内需要修改的数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;修改数据内容;按外协厂家进行分组-----为了减少循环次数放到了一块&#x27;&#x27;&#x27;</span></span><br><span class="line">outsourcSet = <span class="built_in">set</span>()  <span class="comment"># 创建外协集合</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(nrows):</span><br><span class="line">    <span class="keyword">if</span> i &gt; <span class="number">0</span>:  <span class="comment"># 第一行为列名，从第二行开始遍历 “零件图号”列将所有字母改为小写、“.”改为“-”、“艺”改为“y”</span></span><br><span class="line">        finalDataContent[i][columnNameDictionary[<span class="string">&#x27;零件图号&#x27;</span>]] = finalDataContent[i][columnNameDictionary[<span class="string">&#x27;零件图号&#x27;</span>]].lower()</span><br><span class="line">        finalDataContent[i][columnNameDictionary[<span class="string">&#x27;零件图号&#x27;</span>]] = finalDataContent[i][columnNameDictionary[<span class="string">&#x27;零件图号&#x27;</span>]].replace(<span class="string">&#x27;.&#x27;</span>, <span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">        finalDataContent[i][columnNameDictionary[<span class="string">&#x27;零件图号&#x27;</span>]] = finalDataContent[i][columnNameDictionary[<span class="string">&#x27;零件图号&#x27;</span>]].replace(<span class="string">&#x27;艺&#x27;</span>, <span class="string">&#x27;y&#x27;</span>)</span><br><span class="line">        finalDataContent[i][columnNameDictionary[<span class="string">&#x27;数量&#x27;</span>]] = <span class="built_in">int</span>(finalDataContent[i][columnNameDictionary[<span class="string">&#x27;数量&#x27;</span>]])</span><br><span class="line">        finalDataContent[i][columnNameDictionary[<span class="string">&#x27;完工日期&#x27;</span>]] = datetime(*xldate_as_tuple(finalDataContent[i][columnNameDictionary[<span class="string">&#x27;完工日期&#x27;</span>]], <span class="number">0</span>)).strftime(<span class="string">&#x27;%Y-%m-%d&#x27;</span>)</span><br><span class="line">        finalDataContent[i][columnNameDictionary[<span class="string">&#x27;备料日期&#x27;</span>]] = datetime(*xldate_as_tuple(finalDataContent[i][columnNameDictionary[<span class="string">&#x27;备料日期&#x27;</span>]], <span class="number">0</span>)).strftime(<span class="string">&#x27;%Y-%m-%d&#x27;</span>)</span><br><span class="line">        finalDataContent[i][columnNameDictionary[<span class="string">&#x27;成型日期&#x27;</span>]] = datetime(*xldate_as_tuple(finalDataContent[i][columnNameDictionary[<span class="string">&#x27;成型日期&#x27;</span>]], <span class="number">0</span>)).strftime(<span class="string">&#x27;%Y-%m-%d&#x27;</span>)</span><br><span class="line">        outsourcSet.add(finalDataContent[i][columnNameDictionary[<span class="string">&#x27;外协&#x27;</span>]])</span><br><span class="line"></span><br><span class="line">outsourc = <span class="built_in">list</span>(outsourcSet)<span class="comment">#得到的分为不同文件的厂家名</span></span><br></pre></td></tr></table></figure>
+<p><strong><code>str.lower()</code>是将字符串的字母全转为小写</strong></p>
+<p><strong><code>str.replace(&#39;艺&#39;, &#39;y&#39;)</code>是将字符串的“艺”都转为“y”</strong></p>
+<p><code>finalDataContent[i][columnNameDictionary[&#39;完工日期&#39;]] = datetime(*xldate_as_tuple(finalDataContent[i][columnNameDictionary[&#39;完工日期&#39;]], 0)).strftime(&#39;%Y-%m-%d&#39;)</code></p>
+<p><code>finalDataContent[i][columnNameDictionary[&#39;完工日期&#39;]]</code>的 值在读取过后被转为了数值，应该展示为日期，所以使用</p>
+<p><code>datetime(*xldate_as_tuple(finalDataContent[i][columnNameDictionary[&#39;完工日期&#39;]], 0)).strftime(&#39;%Y-%m-%d&#39;)</code></p>
+<p>来转为日期型并重新赋值给它</p>
+<p><strong>将<code>data</code>由读出来的数值转为日期的方法为<code>datetime(*xldate_as_tuple(data, 0)).strftime(&#39;%Y-%m-%d&#39;)</code></strong></p>
+<h2 id="将数据存储为Excel文件"><a href="#将数据存储为Excel文件" class="headerlink" title="将数据存储为Excel文件"></a>将数据存储为Excel文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置样式</span></span><br><span class="line"><span class="comment"># VERT_TOP = 0x00       上端对齐</span></span><br><span class="line"><span class="comment"># VERT_CENTER = 0x01    居中对齐（垂直方向上）</span></span><br><span class="line"><span class="comment"># VERT_BOTTOM = 0x02    低端对齐</span></span><br><span class="line"><span class="comment"># HORZ_LEFT = 0x01      左端对齐</span></span><br><span class="line"><span class="comment"># HORZ_CENTER = 0x02    居中对齐（水平方向上）</span></span><br><span class="line"><span class="comment"># HORZ_RIGHT = 0x03     右端对齐</span></span><br><span class="line">style = xlwt.XFStyle()</span><br><span class="line">al = xlwt.Alignment()</span><br><span class="line">al.horz = <span class="number">0x02</span>  <span class="comment"># 设置水平居中</span></span><br><span class="line">al.vert = <span class="number">0x01</span>  <span class="comment"># 设置垂直居中</span></span><br><span class="line">style.alignment = al</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(outsourc)):</span><br><span class="line">    name = Filepath.replace(<span class="string">&#x27;★模板★&#x27;</span>, <span class="string">&#x27;【&#x27;</span> + outsourc[i] + <span class="string">&#x27;】&#x27;</span>)</span><br><span class="line">    <span class="comment"># 创建excel文件</span></span><br><span class="line">    filename = xlwt.Workbook()</span><br><span class="line">    <span class="comment"># 给工作表命名</span></span><br><span class="line">    sheet = filename.add_sheet(data.sheet_names()[<span class="number">0</span>])</span><br><span class="line">    a = b = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(nrows):</span><br><span class="line">        style2 = xlwt.easyxf(<span class="string">&#x27;font:height 360;&#x27;</span>)  <span class="comment"># 18pt,类型小初的字号</span></span><br><span class="line">        row = sheet.row(j)</span><br><span class="line">        row.set_style(style2)</span><br><span class="line">        <span class="keyword">if</span> j == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(ncols):</span><br><span class="line">                sheet.write(a, b, finalDataContent[j][k], style)</span><br><span class="line">                b += <span class="number">1</span></span><br><span class="line">            b = <span class="number">0</span></span><br><span class="line">            a += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> finalDataContent[j][columnNameDictionary[<span class="string">&#x27;外协&#x27;</span>]] == outsourc[i]:</span><br><span class="line">                finalDataContent[j][columnNameDictionary[<span class="string">&#x27;外协&#x27;</span>]] = <span class="string">&#x27;外协&#x27;</span> + finalDataContent[j][columnNameDictionary[<span class="string">&#x27;外协&#x27;</span>]]</span><br><span class="line">                <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(ncols):</span><br><span class="line">                    sheet.write(a, b, finalDataContent[j][k], style)</span><br><span class="line">                    b += <span class="number">1</span></span><br><span class="line">                b = <span class="number">0</span></span><br><span class="line">                a += <span class="number">1</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;设置每一列的宽度&#x27;&#x27;&#x27;</span></span><br><span class="line">    sheet.col(<span class="number">0</span>).width = <span class="number">256</span> * <span class="number">14</span></span><br><span class="line">    sheet.col(<span class="number">1</span>).width = <span class="number">256</span> * <span class="number">14</span></span><br><span class="line">    sheet.col(<span class="number">2</span>).width = <span class="number">256</span> * <span class="number">20</span></span><br><span class="line">    sheet.col(<span class="number">3</span>).width = <span class="number">256</span> * <span class="number">5</span></span><br><span class="line">    sheet.col(<span class="number">4</span>).width = <span class="number">256</span> * <span class="number">10</span></span><br><span class="line">    sheet.col(<span class="number">5</span>).width = <span class="number">256</span> * <span class="number">20</span></span><br><span class="line">    sheet.col(<span class="number">6</span>).width = <span class="number">256</span> * <span class="number">20</span></span><br><span class="line">    sheet.col(<span class="number">7</span>).width = <span class="number">256</span> * <span class="number">14</span></span><br><span class="line">    sheet.col(<span class="number">8</span>).width = <span class="number">256</span> * <span class="number">14</span></span><br><span class="line">    sheet.col(<span class="number">9</span>).width = <span class="number">256</span> * <span class="number">14</span></span><br><span class="line">    sheet.col(<span class="number">10</span>).width = <span class="number">256</span> * <span class="number">10</span></span><br><span class="line">    sheet.col(<span class="number">11</span>).width = <span class="number">256</span> * <span class="number">10</span></span><br><span class="line">    sheet.col(<span class="number">12</span>).width = <span class="number">256</span> * <span class="number">14</span></span><br><span class="line">    sheet.col(<span class="number">13</span>).width = <span class="number">256</span> * <span class="number">14</span></span><br><span class="line">    sheet.col(<span class="number">14</span>).width = <span class="number">256</span> * <span class="number">14</span></span><br><span class="line">    sheet.col(<span class="number">15</span>).width = <span class="number">256</span> * <span class="number">20</span></span><br><span class="line">    filename.save(name)</span><br></pre></td></tr></table></figure>
+<h4 id="设置单元格数据居中的方式"><a href="#设置单元格数据居中的方式" class="headerlink" title="设置单元格数据居中的方式"></a>设置单元格数据居中的方式</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置样式</span></span><br><span class="line"><span class="comment"># VERT_TOP = 0x00       上端对齐</span></span><br><span class="line"><span class="comment"># VERT_CENTER = 0x01    居中对齐（垂直方向上）</span></span><br><span class="line"><span class="comment"># VERT_BOTTOM = 0x02    低端对齐</span></span><br><span class="line"><span class="comment"># HORZ_LEFT = 0x01      左端对齐</span></span><br><span class="line"><span class="comment"># HORZ_CENTER = 0x02    居中对齐（水平方向上）</span></span><br><span class="line"><span class="comment"># HORZ_RIGHT = 0x03     右端对齐</span></span><br><span class="line"></span><br><span class="line">style = xlwt.XFStyle()</span><br><span class="line">al = xlwt.Alignment()</span><br><span class="line">al.horz = <span class="number">0x02</span>  <span class="comment"># 设置水平居中</span></span><br><span class="line">al.vert = <span class="number">0x01</span>  <span class="comment"># 设置垂直居中</span></span><br><span class="line">style.alignment = al</span><br><span class="line">sheet.write(a, b, finalDataContent[j][k], style)<span class="comment">#在第a行第b列填入finalDataContent[j][k]的数据，格式为style</span></span><br></pre></td></tr></table></figure>
+<h4 id="设置单元格高度"><a href="#设置单元格高度" class="headerlink" title="设置单元格高度"></a>设置单元格高度</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">style2 = xlwt.easyxf(<span class="string">&#x27;font:height 360;&#x27;</span>)  <span class="comment"># 18pt,类型小初的字号</span></span><br><span class="line">        row = sheet.row(j)<span class="comment">#在写第j行的时候设置它的高度</span></span><br><span class="line">        row.set_style(style2)</span><br></pre></td></tr></table></figure>
+<h4 id="设置单元格高度-1"><a href="#设置单元格高度-1" class="headerlink" title="设置单元格高度"></a>设置单元格高度</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sheet.col(<span class="number">0</span>).width = <span class="number">256</span> * <span class="number">14</span><span class="comment">#设置单元格第1列的宽度；256为一个字符的宽度</span></span><br></pre></td></tr></table></figure>
+<h2 id="将数据存储为txt文件"><a href="#将数据存储为txt文件" class="headerlink" title="将数据存储为txt文件"></a>将数据存储为txt文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(outsourc)):</span><br><span class="line">    name = Filepath.replace(<span class="string">&#x27;★模板★.xls&#x27;</span>, <span class="string">&#x27;【&#x27;</span> + outsourc[i] + <span class="string">&#x27;】.txt&#x27;</span>)</span><br><span class="line">    txtData = <span class="built_in">open</span>(name, <span class="string">&#x27;w&#x27;</span>)<span class="comment">#以读方式打开，如果有数据会被清空</span></span><br><span class="line">    count = <span class="number">0</span>  <span class="comment"># 记录行号</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(nrows):</span><br><span class="line">        <span class="keyword">if</span> j &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> finalDataContent[j][columnNameDictionary[<span class="string">&#x27;外协&#x27;</span>]] == <span class="string">&#x27;外协&#x27;</span> + outsourc[i]:</span><br><span class="line">                <span class="keyword">if</span> count != <span class="number">0</span>:<span class="comment">#如果不是第一行则先加换行再输出；需求最后没有空行，最后不能换行，所以换行在写每一行之前</span></span><br><span class="line">                    print(<span class="string">&#x27;&#x27;</span>, file=txtData)<span class="comment">#print打印会默认换行，所以直接打印空字符</span></span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">                <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(ncols):</span><br><span class="line">                    print(finalDataContent[j][k], end=<span class="string">&#x27;\t&#x27;</span>, file=txtData)<span class="comment">#写入每个数据后用制表符分隔</span></span><br><span class="line">    txtData.close()<span class="comment">#关闭文件对象</span></span><br></pre></td></tr></table></figure>
+<h2 id="完成后弹出提示框"><a href="#完成后弹出提示框" class="headerlink" title="完成后弹出提示框"></a>完成后弹出提示框</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">messagebox.showinfo(&quot;提示&quot;, &quot;文件分解完成&quot;)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://zzy521.com/posts/6c0fc8c8.html" title="Python处理Excel文件" target="_blank" rel="external">http://zzy521.com/posts/6c0fc8c8.html</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zzy2019520" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zzy2019520" target="_blank"><span class="text-dark">张占阳</span><small class="ml-1x">软件开发工程师</small></a></h3>
+        <div>能吃能睡，啥都不会！</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/posts/24cd4f39.html" title="服务器添加EOS的workspace功能"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+    <li class="toggle-toc">
+      <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false" title="文章目录" role="button">
+        <span>[&nbsp;</span><span>文章目录</span>
+        <i class="text-collapsed icon icon-anchor"></i>
+        <i class="text-in icon icon-close"></i>
+        <span>]</span>
+      </a>
+    </li>
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipay.jpg" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechat.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/zzy2019520" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="https://weibo.com/u/6000361757" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2021 张占阳
+        
+        <div class="publishby">
+            本网站由<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" target="_blank"><img width="40" src="../img/又拍云_logo5.png"/> </a>提供CDN加速服务
+        	<!-- Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>. -->
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'SVT1dStIdP36PNVntBfpuIAa-gzGzoHsz',
+    appKey: 'wXS1sNhJ0U7pxRdcjaxUCJIk',
+    placeholder: '填写评论',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
