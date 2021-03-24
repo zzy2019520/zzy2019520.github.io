@@ -17,21 +17,22 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Hexo新建博客显示分类及标签 | zzy</title>
-  <meta name="description" content="分类进入hexo博客所在的根目录，输入如下命令： 1hexo new page categories 成功后提示： 1INFO  Created: D:\Hexo\source\categories\index.md index.md的内容如下： 1234---title: categoriesdate: 2020-12-20 20:26:06--- 需要修改为 1234567---title:">
+  <title>Java中a=a++的问题 | zzy</title>
+  <meta name="description" content="int a&#x3D;0;a&#x3D;a++;生成的字节码是： 0 iconst_0 —–0压入栈顶 1 istore_1 [a] —–栈顶值（0）存入局部变量1（a） 2 iload_1 [a] —–变量1的值压入栈顶（值为0）(a++效果) 3 iinc 1 1 [a] —–变量1自加（a++操作，自加后变量1的值为1） 6 istore_1 [a] —–将栈顶值（0）存入变量1（&#x3D;操作） a的值依次变化为：0">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo新建博客显示分类及标签">
-<meta property="og:url" content="http://zzy521.com/posts/4d9beafe.html">
+<meta property="og:title" content="Java中a&#x3D;a++的问题">
+<meta property="og:url" content="http://zzy521.com/posts/dad1e78f.html">
 <meta property="og:site_name" content="张占阳的博客">
-<meta property="og:description" content="分类进入hexo博客所在的根目录，输入如下命令： 1hexo new page categories 成功后提示： 1INFO  Created: D:\Hexo\source\categories\index.md index.md的内容如下： 1234---title: categoriesdate: 2020-12-20 20:26:06--- 需要修改为 1234567---title:">
+<meta property="og:description" content="int a&#x3D;0;a&#x3D;a++;生成的字节码是： 0 iconst_0 —–0压入栈顶 1 istore_1 [a] —–栈顶值（0）存入局部变量1（a） 2 iload_1 [a] —–变量1的值压入栈顶（值为0）(a++效果) 3 iinc 1 1 [a] —–变量1自加（a++操作，自加后变量1的值为1） 6 istore_1 [a] —–将栈顶值（0）存入变量1（&#x3D;操作） a的值依次变化为：0">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-20T12:40:11.000Z">
-<meta property="article:modified_time" content="2020-12-20T12:57:08.004Z">
+<meta property="article:published_time" content="2021-03-23T09:41:17.000Z">
+<meta property="article:modified_time" content="2021-03-24T01:37:46.376Z">
 <meta property="article:author" content="张占阳">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="a++">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://zzy521.com/posts/4d9beafe.html">
+  <link rel="canonical" href="http://zzy521.com/posts/dad1e78f.html">
   
     <link rel="alternate" href="/atom.xml" title="张占阳的博客" type="application/atom+xml">
   
@@ -314,21 +315,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">文章目录</h3>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E7%AD%BE"><span class="toc-number">2.</span> <span class="toc-text">标签</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%A8%A1%E6%9D%BF"><span class="toc-number">3.</span> <span class="toc-text">修改模板</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#int-a-0-a-a"><span class="toc-number">1.</span> <span class="toc-text">int a&#x3D;0;a&#x3D;a++;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#int-a-0-a-a-1"><span class="toc-number">2.</span> <span class="toc-text">int a&#x3D;0;a&#x3D;++a;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#int-a-0-a-a-a"><span class="toc-number">3.</span> <span class="toc-text">int a&#x3D;0;a&#x3D;(a++)+(++a);</span></a></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-Hexo新建博客显示分类及标签" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Java中a=a++的问题" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo新建博客显示分类及标签
+      Java中a=a++的问题
     </h1>
   
 
@@ -336,20 +337,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/posts/4d9beafe.html" class="article-date">
-	  <time datetime="2020-12-20T12:40:11.000Z" itemprop="datePublished">2020-12-20</time>
+	<a href="/posts/dad1e78f.html" class="article-date">
+	  <time datetime="2021-03-23T09:41:17.000Z" itemprop="datePublished">2021-03-23</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Hexo/" rel="tag">Hexo</a>
+	<a class="article-tag-link-link" href="/tags/Java/" rel="tag">Java</a>, <a class="article-tag-link-link" href="/tags/a/" rel="tag">a++</a>
   </span>
 
 
@@ -362,37 +363,46 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/4d9beafe.html#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/posts/dad1e78f.html#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 176(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 656(字)</span>
 	
 	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
 	
 
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>进入hexo博客所在的根目录，输入如下命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
-<p>成功后提示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Created: D:\Hexo\source\categories\index.md</span><br></pre></td></tr></table></figure>
-<p>index.md的内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2020-12-20 20:26:06</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>需要修改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">date: 2020-12-20 20:26:06</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">layout: categories</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p>在控制台中输入如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
-<p>成功后提示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Created: D:\Hexo\source\tags\index.md</span><br></pre></td></tr></table></figure>
-<p>index.md的内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2020-12-20 20:51:11</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>修改为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">date: 2020-12-20 20:51:11</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">layout: tags</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<h2 id="修改模板"><a href="#修改模板" class="headerlink" title="修改模板"></a>修改模板</h2><p>修改<code>scaffolds</code>中的<code>post</code>模板</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories:</span><br><span class="line">  - 文章分类</span><br><span class="line">tags:</span><br><span class="line">  - 文章标签</span><br><span class="line">toc: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+        <h3 id="int-a-0-a-a"><a href="#int-a-0-a-a" class="headerlink" title="int a=0;a=a++;"></a>int a=0;a=a++;</h3><p>生成的字节码是：</p>
+<p>0 iconst_0 —–0压入栈顶</p>
+<p>1 istore_1 [a] —–栈顶值（0）存入局部变量1（a）</p>
+<p>2 iload_1 [a] —–变量1的值压入栈顶（值为0）(a++效果)</p>
+<p>3 iinc 1 1 [a] —–变量1自加（a++操作，自加后变量1的值为1）</p>
+<p>6 istore_1 [a] —–将栈顶值（0）存入变量1（=操作）</p>
+<p>a的值依次变化为：0-&gt;1-&gt;0</p>
+<p>运算符的优先级中++和–仅次于(),而a++正常的逻辑是++在下一行才会生效,但这里使用的是同一个变量,所以这里是先把右边运算的结果(也就是a的原始值0)压入栈,然后再去计算a++,由于=的优先级是最低的,所以最后再将运算过的值赋值给左边的a</p>
+<h3 id="int-a-0-a-a-1"><a href="#int-a-0-a-a-1" class="headerlink" title="int a=0;a=++a;"></a>int a=0;a=++a;</h3><p>生成的字节码是：</p>
+<p>0 iconst_0 —–0压入栈顶</p>
+<p>1 istore_1 [a] —–栈顶值（0）存入局部变量1（a）</p>
+<p>2 iinc 1 1 [a] —–变量1自加（++a操作，自加后变量1的值为1）</p>
+<p>5 iload_1 [a] —–变量1的值压入栈顶（值为1）(++a效果)</p>
+<p>6 istore_1 [a] —–将栈顶值（1）存入变量1（=操作）</p>
+<p>a的值依次变化为：0-&gt;1-&gt;1</p>
+<h3 id="int-a-0-a-a-a"><a href="#int-a-0-a-a-a" class="headerlink" title="int a=0;a=(a++)+(++a);"></a>int a=0;a=(a++)+(++a);</h3><p>0 iconst_0 —–0压入栈顶</p>
+<p>1 istore_1 [a] —–栈顶值（0）存入局部变量1（a）</p>
+<p>2 iload_1 [a] —–变量1的值压入栈顶（值为0）(a++效果)</p>
+<p>3 iinc 1 1 [a] —–变量1自加（a++操作，自加后变量1的值为1）</p>
+<p>6 iinc 1 1 [a] —–变量1自加（++a操作，自加后变量1的值为2）</p>
+<p>9 iload_1 [a] —–变量1的值压入栈顶（值为2）(++a效果)</p>
+<p>10 iadd —–栈顶两值（0，2）相加（结果为2），并存入栈顶</p>
+<p>11 istore_1 [a]—–将栈顶值（2）存入变量1（=操作）</p>
+<p>a的值依次变化为：0-&gt;1-&gt;2-&gt;2</p>
+<p>这里是先计算括号里边的值,左边的括号是先存a的值,然后压入栈用来计算之后的a++(由于有++才有了这一步),这时候左边的括号内容进行运算,然后a自加;右边括号先进行a自加然后进行运算,这时候右边括号的值为2,然后赋值给a</p>
+<p><strong>总结:应该是++的优先级最高,所以a++是会先取a的值,然后a进行自加,然后使用取出的值进行运算,最后在进行=的赋值操作,所以是因为=的优先级最低,所以=的赋值覆盖了a自加的值.</strong></p>
+<p><strong>但在实际编码的过程中还是尽量不要用不好理解的代码.</strong></p>
 
       
     </div>
@@ -402,7 +412,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="http://zzy521.com/posts/4d9beafe.html" title="Hexo新建博客显示分类及标签" target="_blank" rel="external">http://zzy521.com/posts/4d9beafe.html</a>
+      <a href="http://zzy521.com/posts/dad1e78f.html" title="Java中a=a++的问题" target="_blank" rel="external">http://zzy521.com/posts/dad1e78f.html</a>
     </li>
     
     <li class="post-copyright-license">
@@ -448,13 +458,9 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/posts/73a46000.html" title="Linux查看应用的端口号和进程号PID"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
-    
     
     <li class="next">
-      <a href="/posts/eba5960e.html" title="在服务器上安装运行EOS的Tomcat的方法"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/posts/f789481e.html" title="Java位运算"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

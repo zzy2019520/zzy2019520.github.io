@@ -6,7 +6,7 @@
   <link href="http://zzy521.com/atom.xml" rel="self"/>
   
   <link href="http://zzy521.com/"/>
-  <updated>2021-03-23T03:56:02.170Z</updated>
+  <updated>2021-03-24T01:37:46.376Z</updated>
   <id>http://zzy521.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java中a=a++的问题</title>
+    <link href="http://zzy521.com/posts/dad1e78f.html"/>
+    <id>http://zzy521.com/posts/dad1e78f.html</id>
+    <published>2021-03-23T09:41:17.000Z</published>
+    <updated>2021-03-24T01:37:46.376Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="int-a-0-a-a"><a href="#int-a-0-a-a" class="headerlink" title="int a=0;a=a++;"></a>int a=0;a=a++;</h3><p>生成的字节码是：</p><p>0 iconst_0 —–0压入栈顶</p><p>1 istore_1 [a] —–栈顶值（0）存入局部变量1（a）</p><p>2 iload_1 [a] —–变量1的值压入栈顶（值为0）(a++效果)</p><p>3 iinc 1 1 [a] —–变量1自加（a++操作，自加后变量1的值为1）</p><p>6 istore_1 [a] —–将栈顶值（0）存入变量1（=操作）</p><p>a的值依次变化为：0-&gt;1-&gt;0</p><p>运算符的优先级中++和–仅次于(),而a++正常的逻辑是++在下一行才会生效,但这里使用的是同一个变量,所以这里是先把右边运算的结果(也就是a的原始值0)压入栈,然后再去计算a++,由于=的优先级是最低的,所以最后再将运算过的值赋值给左边的a</p><h3 id="int-a-0-a-a-1"><a href="#int-a-0-a-a-1" class="headerlink" title="int a=0;a=++a;"></a>int a=0;a=++a;</h3><p>生成的字节码是：</p><p>0 iconst_0 —–0压入栈顶</p><p>1 istore_1 [a] —–栈顶值（0）存入局部变量1（a）</p><p>2 iinc 1 1 [a] —–变量1自加（++a操作，自加后变量1的值为1）</p><p>5 iload_1 [a] —–变量1的值压入栈顶（值为1）(++a效果)</p><p>6 istore_1 [a] —–将栈顶值（1）存入变量1（=操作）</p><p>a的值依次变化为：0-&gt;1-&gt;1</p><h3 id="int-a-0-a-a-a"><a href="#int-a-0-a-a-a" class="headerlink" title="int a=0;a=(a++)+(++a);"></a>int a=0;a=(a++)+(++a);</h3><p>0 iconst_0 —–0压入栈顶</p><p>1 istore_1 [a] —–栈顶值（0）存入局部变量1（a）</p><p>2 iload_1 [a] —–变量1的值压入栈顶（值为0）(a++效果)</p><p>3 iinc 1 1 [a] —–变量1自加（a++操作，自加后变量1的值为1）</p><p>6 iinc 1 1 [a] —–变量1自加（++a操作，自加后变量1的值为2）</p><p>9 iload_1 [a] —–变量1的值压入栈顶（值为2）(++a效果)</p><p>10 iadd —–栈顶两值（0，2）相加（结果为2），并存入栈顶</p><p>11 istore_1 [a]—–将栈顶值（2）存入变量1（=操作）</p><p>a的值依次变化为：0-&gt;1-&gt;2-&gt;2</p><p>这里是先计算括号里边的值,左边的括号是先存a的值,然后压入栈用来计算之后的a++(由于有++才有了这一步),这时候左边的括号内容进行运算,然后a自加;右边括号先进行a自加然后进行运算,这时候右边括号的值为2,然后赋值给a</p><p><strong>总结:应该是++的优先级最高,所以a++是会先取a的值,然后a进行自加,然后使用取出的值进行运算,最后在进行=的赋值操作,所以是因为=的优先级最低,所以=的赋值覆盖了a自加的值.</strong></p><p><strong>但在实际编码的过程中还是尽量不要用不好理解的代码.</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;int-a-0-a-a&quot;&gt;&lt;a href=&quot;#int-a-0-a-a&quot; class=&quot;headerlink&quot; title=&quot;int a=0;a=a++;&quot;&gt;&lt;/a&gt;int a=0;a=a++;&lt;/h3&gt;&lt;p&gt;生成的字节码是：&lt;/p&gt;
+&lt;p&gt;0 iconst_0 —</summary>
+      
+    
+    
+    
+    <category term="Java" scheme="http://zzy521.com/categories/Java/"/>
+    
+    
+    <category term="Java" scheme="http://zzy521.com/tags/Java/"/>
+    
+    <category term="a++" scheme="http://zzy521.com/tags/a/"/>
+    
+  </entry>
   
   <entry>
     <title>Java位运算</title>
