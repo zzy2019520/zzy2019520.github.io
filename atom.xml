@@ -6,7 +6,7 @@
   <link href="http://zzy521.com/atom.xml" rel="self"/>
   
   <link href="http://zzy521.com/"/>
-  <updated>2021-03-30T02:48:56.765Z</updated>
+  <updated>2021-03-30T02:49:07.850Z</updated>
   <id>http://zzy521.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://zzy521.com/posts/21754c85.html"/>
     <id>http://zzy521.com/posts/21754c85.html</id>
     <published>2021-03-30T02:34:02.000Z</published>
-    <updated>2021-03-30T02:48:56.765Z</updated>
+    <updated>2021-03-30T02:49:07.850Z</updated>
     
     <content type="html"><![CDATA[<p><strong>报错：[navicat premium] [IM002] [Microsoft][ODBC 驱动程序管理器] 未发现数据源名称并且未指定默认驱动程序</strong></p><p>进入Navicat的安装目录,找到下边的文件,点击安装,重新打开数据库即可.</p><p><img src="../img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20210330103656.png" alt="微信截图_20210330103656"></p>]]></content>
     
