@@ -6,7 +6,7 @@
   <link href="http://zzy521.com/atom.xml" rel="self"/>
   
   <link href="http://zzy521.com/"/>
-  <updated>2021-04-07T03:41:12.506Z</updated>
+  <updated>2021-05-18T01:48:01.756Z</updated>
   <id>http://zzy521.com/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CRM调用外部接口</title>
+    <link href="http://zzy521.com/posts/ab81ff07.html"/>
+    <id>http://zzy521.com/posts/ab81ff07.html</id>
+    <published>2021-05-18T01:48:01.000Z</published>
+    <updated>2021-05-18T01:48:01.756Z</updated>
+    
+    
+    
+    
+    <category term="文章分类" scheme="http://zzy521.com/categories/%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB/"/>
+    
+    
+    <category term="文章标签" scheme="http://zzy521.com/tags/%E6%96%87%E7%AB%A0%E6%A0%87%E7%AD%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>调用钉钉接口发送工作通知</title>
