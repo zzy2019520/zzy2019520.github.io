@@ -228,9 +228,9 @@
     <category term="服务器" scheme="https://zzy521.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
     
-    <category term="Linux" scheme="https://zzy521.com/tags/Linux/"/>
-    
     <category term="EOS" scheme="https://zzy521.com/tags/EOS/"/>
+    
+    <category term="Linux" scheme="https://zzy521.com/tags/Linux/"/>
     
   </entry>
   
@@ -254,9 +254,9 @@
     <category term="开发工具" scheme="https://zzy521.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"/>
     
     
-    <category term="exe" scheme="https://zzy521.com/tags/exe/"/>
-    
     <category term="Java" scheme="https://zzy521.com/tags/Java/"/>
+    
+    <category term="exe" scheme="https://zzy521.com/tags/exe/"/>
     
   </entry>
   
@@ -407,11 +407,11 @@
     <category term="服务器" scheme="https://zzy521.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
     
+    <category term="EOS" scheme="https://zzy521.com/tags/EOS/"/>
+    
     <category term="Linux" scheme="https://zzy521.com/tags/Linux/"/>
     
     <category term="Tomcat" scheme="https://zzy521.com/tags/Tomcat/"/>
-    
-    <category term="EOS" scheme="https://zzy521.com/tags/EOS/"/>
     
   </entry>
   
