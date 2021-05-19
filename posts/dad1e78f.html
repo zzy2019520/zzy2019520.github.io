@@ -376,7 +376,15 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h3 id="int-a-0-a-a"><a href="#int-a-0-a-a" class="headerlink" title="int a=0;a=a++;"></a>int a=0;a=a++;</h3><p>生成的字节码是：</p>
+        
+  <div id="toc-div" class="toc-article" >
+    <strong class="toc-title">Index</strong>
+      
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#int-a-0-a-a"><span class="toc-number">1.</span> <span class="toc-text">int a&#x3D;0;a&#x3D;a++;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#int-a-0-a-a-1"><span class="toc-number">2.</span> <span class="toc-text">int a&#x3D;0;a&#x3D;++a;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#int-a-0-a-a-a"><span class="toc-number">3.</span> <span class="toc-text">int a&#x3D;0;a&#x3D;(a++)+(++a);</span></a></li></ol>
+      
+  </div>
+
+<h3 id="int-a-0-a-a"><a href="#int-a-0-a-a" class="headerlink" title="int a=0;a=a++;"></a>int a=0;a=a++;</h3><p>生成的字节码是：</p>
 <p>0 iconst_0 —–0压入栈顶</p>
 <p>1 istore_1 [a] —–栈顶值（0）存入局部变量1（a）</p>
 <p>2 iload_1 [a] —–变量1的值压入栈顶（值为0）(a++效果)</p>
