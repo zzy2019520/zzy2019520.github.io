@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.zzy521.com/posts/f007732d.html</loc>
+    <loc>https://www.zzy521.com/posts/ab81ff07.html</loc>
     
     <lastmod>2021-05-19</lastmod>
     
@@ -12,13 +12,6 @@
     <loc>https://www.zzy521.com/posts/6a850357.html</loc>
     
     <lastmod>2021-05-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.zzy521.com/posts/ab81ff07.html</loc>
-    
-    <lastmod>2021-05-18</lastmod>
     
   </url>
   
@@ -142,13 +135,6 @@
     <priority>1.0</priority>
   </url>
 
-  
-  <url>
-    <loc>https://www.zzy521.com/tags/%E6%96%87%E7%AB%A0%E6%A0%87%E7%AD%BE/</loc>
-    <lastmod>2021-05-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
   
   <url>
     <loc>https://www.zzy521.com/tags/Hexo/</loc>
@@ -276,14 +262,28 @@
     <priority>0.6</priority>
   </url>
   
-
-  
   <url>
-    <loc>https://www.zzy521.com/categories/%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB/</loc>
+    <loc>https://www.zzy521.com/tags/c/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
+  
+  <url>
+    <loc>https://www.zzy521.com/tags/%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8/</loc>
+    <lastmod>2021-05-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.zzy521.com/tags/json%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/</loc>
+    <lastmod>2021-05-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
   
   <url>
     <loc>https://www.zzy521.com/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/</loc>
@@ -308,6 +308,13 @@
   
   <url>
     <loc>https://www.zzy521.com/categories/Python/</loc>
+    <lastmod>2021-05-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.zzy521.com/categories/CRM/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
