@@ -379,7 +379,44 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <％post.content％>
+        <h2 id="Tomcat的目录结构"><a href="#Tomcat的目录结构" class="headerlink" title="Tomcat的目录结构"></a>Tomcat的目录结构</h2><p>解压下载好的tomcat可以看到如下文件结构：</p>
+<p><code>bin</code>：存放启动和关闭tomcat的命令的路径。</p>
+<p><code>conf</code>：存放tomcat的配置，所有的tomcat的配置都在该路径下设置。</p>
+<p><code>lib</code>：存放Tomcat服务器的核心类库（JAR文件），如果需要扩展tomcat的功能，也可将第三方类库复制到该路径下。</p>
+<p><code>logs</code>：这是一个空路径，用来保存Tomcat每次运行后产生的日志。</p>
+<p><code>temp</code>：保存Web应用运行过程中生成的临时文件。</p>
+<p><code>webapps</code>：该路径用于自动部署Web应用，将Web应用复制到该路径下，Tomcat启动时会自动将该应用部署到容器中。</p>
+<p><code>work</code>：保存在Web应用在运行过程中编译生成的.class文件。该文件夹可以删除，但每次启动Tomcat时系统都会再次建立该路径。</p>
+<p><code>LICENSE</code>等相关文档</p>
+<p><strong>运行Tomcat只需要系统有一个JAVA_HOME环境变量。不管是Windows还是linux，只要有这个环境变量并且指向JDK的安装路径即可。</strong></p>
+<h2 id="启动Tomcat"><a href="#启动Tomcat" class="headerlink" title="启动Tomcat"></a>启动Tomcat</h2><p>对于Windows平台，只要双击Tomcat安装路径下bin目录中的startup.bat文件即可。</p>
+<p>启动Tomcat后，打开浏览器并在地址栏输入<a target="_blank" rel="noopener" href="http://localhost:8080/%EF%BC%8C%E6%B5%8F%E8%A7%88%E5%99%A8%E5%87%BA%E7%8E%B0%E6%AD%A4%E7%95%8C%E9%9D%A2%E5%8D%B3%E8%A1%A8%E7%A4%BA%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F%E3%80%82">http://localhost:8080/，浏览器出现此界面即表示安装成功。</a></p>
+<img src="../img/QQ截图20210102160835.png" alt="QQ截图20210102160835" style="zoom: 67%;" />
+
+<h2 id="配置Tomcat的端口"><a href="#配置Tomcat的端口" class="headerlink" title="配置Tomcat的端口"></a>配置Tomcat的端口</h2><p>Tomcat的默认端口是8080，可以通过修改Tomcat的配置文件来改变服务端口，甚至可以让Tomcat同时在多个端口提供服务。</p>
+<p>Tomcat的配置文件在<code>conf</code>目录下，控制端口的配置文件为<code>conf</code>下的<code>server.xml</code>文件。切记修改时只能用记事本或者vi等无格式的编辑器，不可以使用写字板。</p>
+<p>在<code>service.xml</code>的70行左右的位置，可以看到以下代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">&quot;8080&quot;</span> <span class="attr">protocol</span>=<span class="string">&quot;HTTP/1.1&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">connectionTimeout</span>=<span class="string">&quot;20000&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">redirectPort</span>=<span class="string">&quot;8443&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其中<code>port=&quot;8080&quot;</code>就是Tomcat提供服务的端口，将Tomcat修改为任意的端口，为避免与公用端口产生冲突，端口号最好大于1024。在这里我修改为8090.</p>
+<p>修改完之后重启Tomcat，在浏览器地址栏输入<a target="_blank" rel="noopener" href="http://localhost:8090/,%E5%8D%B3%E5%8F%AF%E5%86%8D%E6%AC%A1%E7%9C%8B%E5%88%B0Tomcat%E7%9A%84%E7%95%8C%E9%9D%A2%E3%80%82">http://localhost:8090/,即可再次看到Tomcat的界面。</a></p>
+<h2 id="Tomcat的控制台"><a href="#Tomcat的控制台" class="headerlink" title="Tomcat的控制台"></a>Tomcat的控制台</h2><p>在上图右上角有三个控制台：一个是Server Status控制台，一个是Manager APP控制台，一个是Host Mnager控制台。</p>
+<p>Status用来监控服务器的状态，Manager控制台用来部署和监控Web应用，通常只需使用Manager控制台。</p>
+<p>控制台的用户名和密码是通过Tomcat的JAAS（JAAS的全称是Java Authentication Authorization Service（Java验证和授权API），它用来控制对Java web应用的授权访问）控制的。初始是没有用户的，所以无论输入什么都无法登陆。</p>
+<p>webapps路径是Web应用的存放路径，而Manager控制台对应的也是一个Web应用，所以它的配置文件是webapps/manager/WEB-INF路径下的web.xml文件。</p>
+<p>用户的配置也在其中，但是Tomcat采用文件安全域，<strong>添加控制台用户只需要修改conf路径下的tomcat-users.xml文件即可。</strong></p>
+<p>打开该文件在</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tomcat-users</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>下方添加下列内容</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">role</span> <span class="attr">rolename</span>=<span class="string">&quot;manager-gui&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">user</span> <span class="attr">username</span>=<span class="string">&quot;manager&quot;</span> <span class="attr">password</span>=<span class="string">&quot;manager&quot;</span> <span class="attr">roles</span>=<span class="string">&quot;manager-gui&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>此处登录用户名和密码我都是用的manager，可以根据需要自行修改。</p>
+<p>修改过后重启Tomcat点击控制台登录即可。</p>
+<p>显示下图即表示登陆成功</p>
+<img src="../img/QQ%E6%88%AA%E5%9B%BE20210102165446.png" alt="QQ截图20210102165446" style="zoom:67%;" />
+
+<hr>
+<p><strong>Tomcat服务器状态</strong></p>
+<p><img src="../img/QQ%E6%88%AA%E5%9B%BE20210102165559.png" alt="QQ截图20210102165559"></p>
+
       
     </div>
     <div class="article-footer">

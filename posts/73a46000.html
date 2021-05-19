@@ -381,7 +381,30 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <％post.content％>
+        <h2 id="1-进程名和进程号PID的互查"><a href="#1-进程名和进程号PID的互查" class="headerlink" title="1.进程名和进程号PID的互查"></a>1.进程名和进程号PID的互查</h2><h4 id="1-1根据进程名查进程号PID-PID是进程标识符"><a href="#1-1根据进程名查进程号PID-PID是进程标识符" class="headerlink" title="1.1根据进程名查进程号PID(PID是进程标识符)"></a>1.1根据进程名查进程号PID(PID是进程标识符)</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep 进程名</span><br></pre></td></tr></table></figure>
+<p>比如：查看tomcat进程的PID编号</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep tomcat</span><br></pre></td></tr></table></figure>
+<p>如图，第一个就是查到的PID编号</p>
+<p><img src="../img/%E6%88%AA%E5%9B%BE.png" alt="截图"></p>
+<h5 id="还可以使用ps-aux-grep-xxx，效果与ps-ef-grep-xxx一样，只不过信息会更详细。"><a href="#还可以使用ps-aux-grep-xxx，效果与ps-ef-grep-xxx一样，只不过信息会更详细。" class="headerlink" title="还可以使用ps -aux | grep xxx，效果与ps -ef | grep xxx一样，只不过信息会更详细。"></a>还可以使用<code>ps -aux | grep xxx</code>，效果与<code>ps -ef | grep xxx</code>一样，只不过信息会更详细。</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -aux | grep 进程名</span><br></pre></td></tr></table></figure>
+<p>PID编号可以用来强制结束某进程。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 PID编号</span><br></pre></td></tr></table></figure>
+<p>比如：强制结束tomcat进程</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">5087为上边查到的tomcat的PID</span></span><br><span class="line">kill -9 5087</span><br></pre></td></tr></table></figure>
+<h4 id="1-2根据进程号查进程名"><a href="#1-2根据进程号查进程名" class="headerlink" title="1.2根据进程号查进程名"></a>1.2根据进程号查进程名</h4><p>将上边的进程名换成进程号即可。（这个用的比较少，一般都是根据进程名去查进程号）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep 进程号</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -aux | grep 进程号</span><br></pre></td></tr></table></figure>
+<h2 id="2-端口号和进程号PID的互查"><a href="#2-端口号和进程号PID的互查" class="headerlink" title="2.端口号和进程号PID的互查"></a>2.端口号和进程号PID的互查</h2><h5 id="根据进程PID查端口号"><a href="#根据进程PID查端口号" class="headerlink" title="根据进程PID查端口号"></a>根据进程PID查端口号</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i | grep 进程号</span><br></pre></td></tr></table></figure>
+<p><img src="../img/QQ%E6%88%AA%E5%9B%BE20201223091932.png" alt="QQ截图20201223091932"></p>
+<p>或使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -nap | grep 进程号</span><br></pre></td></tr></table></figure>
+<p><img src="../img/QQ%E6%88%AA%E5%9B%BE20201223092109.png" alt="QQ截图20201223092109"></p>
+<h5 id="根据端口号查进程号PID"><a href="#根据端口号查进程号PID" class="headerlink" title="根据端口号查进程号PID"></a>根据端口号查进程号PID</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsof -i:端口号</span><br></pre></td></tr></table></figure>
+<p><img src="../img/QQ%E6%88%AA%E5%9B%BE20201223092227.png" alt="QQ截图20201223092227"></p>
+<p>或</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -nap | grep 端口号</span><br></pre></td></tr></table></figure>
+<p><img src="../img/QQ%E6%88%AA%E5%9B%BE20201223092403.png" alt="QQ截图20201223092403"></p>
+
       
     </div>
     <div class="article-footer">

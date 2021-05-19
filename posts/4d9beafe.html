@@ -375,7 +375,25 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <％post.content％>
+        <h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>进入hexo博客所在的根目录，输入如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+<p>成功后提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Created: D:\Hexo\source\categories\index.md</span><br></pre></td></tr></table></figure>
+<p>index.md的内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2020-12-20 20:26:06</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>需要修改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">date: 2020-12-20 20:26:06</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">layout: categories</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><p>在控制台中输入如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
+<p>成功后提示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INFO  Created: D:\Hexo\source\tags\index.md</span><br></pre></td></tr></table></figure>
+<p>index.md的内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: tags</span><br><span class="line">date: 2020-12-20 20:51:11</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">date: 2020-12-20 20:51:11</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">layout: tags</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h2 id="修改模板"><a href="#修改模板" class="headerlink" title="修改模板"></a>修改模板</h2><p>修改<code>scaffolds</code>中的<code>post</code>模板</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories:</span><br><span class="line">  - 文章分类</span><br><span class="line">tags:</span><br><span class="line">  - 文章标签</span><br><span class="line">toc: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <div class="article-footer">
