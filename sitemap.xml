@@ -151,14 +151,14 @@
   </url>
   
   <url>
-    <loc>https://zzy521.com/tags/%E6%96%87%E7%AB%A0%E6%A0%87%E7%AD%BE/</loc>
+    <loc>https://zzy521.com/tags/Hexo/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://zzy521.com/tags/Hexo/</loc>
+    <loc>https://zzy521.com/tags/%E6%96%87%E7%AB%A0%E6%A0%87%E7%AD%BE/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -179,20 +179,6 @@
   </url>
   
   <url>
-    <loc>https://zzy521.com/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/</loc>
-    <lastmod>2021-05-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zzy521.com/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</loc>
-    <lastmod>2021-05-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zzy521.com/tags/markdown/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
@@ -207,7 +193,14 @@
   </url>
   
   <url>
-    <loc>https://zzy521.com/tags/Linux/</loc>
+    <loc>https://zzy521.com/tags/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2/</loc>
+    <lastmod>2021-05-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zzy521.com/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -228,14 +221,14 @@
   </url>
   
   <url>
-    <loc>https://zzy521.com/tags/Tomcat/</loc>
+    <loc>https://zzy521.com/tags/Linux/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://zzy521.com/tags/exe/</loc>
+    <loc>https://zzy521.com/tags/Tomcat/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -250,6 +243,13 @@
   
   <url>
     <loc>https://zzy521.com/tags/SQLServer/</loc>
+    <lastmod>2021-05-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zzy521.com/tags/exe/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -293,14 +293,14 @@
   </url>
   
   <url>
-    <loc>https://zzy521.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
+    <loc>https://zzy521.com/categories/Python/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://zzy521.com/categories/Python/</loc>
+    <loc>https://zzy521.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     <lastmod>2021-05-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
