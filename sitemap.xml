@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zzy521.com/posts/fbe3691e.html</loc>
+    
+    <lastmod>2021-07-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://zzy521.com/posts/2fb365d5.html</loc>
     
     <lastmod>2021-07-20</lastmod>
@@ -383,6 +390,13 @@
   
   <url>
     <loc>https://zzy521.com/tags/java/</loc>
+    <lastmod>2021-07-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zzy521.com/tags/PickList/</loc>
     <lastmod>2021-07-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
